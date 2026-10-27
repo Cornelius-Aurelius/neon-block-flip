@@ -1,378 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Neon Block Flip ∞ OMEGA</title>
-
-<!-- SEO Authority -->
-<meta name="author" content="Cornelius Aurelius">
-<meta name="description" content="Neon Block Flip ∞ Omega — a fully advanced neon puzzle-flipping logic game built in a single HTML file. Created by Cornelius Aurelius.">
-<meta name="keywords" content="Cornelius Aurelius, neon puzzle game, bloxorz html, logic game, cyber neon, block flip">
-
-<style>
-body{
-  margin:0; background:black; overflow:hidden;
-  color:#0ff; font-family:Arial, sans-serif;
-}
-#ui{
-  position:fixed; top:10px; left:50%; transform:translateX(-50%);
-  font-size:1.4rem; text-shadow:0 0 16px #0ff;
-}
-#game{
-  position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-50%);
-}
-#msgbox{
-  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
-  display:none; color:#0ff; text-align:center;
-  font-size:2rem; text-shadow:0 0 20px #0ff; z-index:5;
-}
-#msgbox button{
-  margin-top:20px; padding:10px 20px;
-  font-size:1rem; background:#0ff; color:black;
-  border:none; border-radius:10px; cursor:pointer;
-}
-footer{
-  position:fixed; bottom:10px; width:100%; text-align:center;
-  color:#0ff; opacity:.7; font-size:.85rem;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070d1b">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Play Neon Block Flip ∞ OMEGA: 30 handcrafted-style, verified-solvable rolling-block logic puzzles. Free browser game with keyboard, touch and swipe controls. Created by Cornelius Aurelius.">
+  <meta name="author" content="Cornelius Aurelius">
+  <meta property="og:title" content="Neon Block Flip ∞ OMEGA">
+  <meta property="og:description" content="30 mind-bending rolling-block puzzles. Roll the prism. Reach the core.">
+  <meta property="og:type" content="website">
+  <title>Neon Block Flip ∞ OMEGA | Cornelius Aurelius</title>
+  <style>
+    :root{--bg:#070d1b;--bg2:#0d1730;--glass:rgba(15,28,55,.82);--line:rgba(137,176,233,.2);--muted:#a8b8d3;--text:#f0f8ff;--aqua:#6cf8f4;--mint:#82ffb8;--pink:#f09bff;--warn:#ffc17b;--radius:22px;--shadow:0 22px 75px rgba(0,0,0,.42)}
+    *{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-width:280px;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse 74% 42% at 14% 10%,rgba(29,78,130,.25),transparent),radial-gradient(ellipse 60% 50% at 91% 55%,rgba(85,20,113,.17),transparent),var(--bg);line-height:1.45}
+    body::before{content:"";pointer-events:none;position:fixed;inset:0;background:linear-gradient(rgba(129,181,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(129,181,255,.02) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 92%)}
+    button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--mint);outline-offset:4px}button:disabled{opacity:.38;cursor:not-allowed}
+    a{color:var(--aqua)}.site{max-width:1160px;margin:0 auto;padding:24px clamp(15px,3vw,38px) 50px;position:relative;z-index:1}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:25px}.signature{display:flex;align-items:center;gap:12px;text-decoration:none;color:#ebf8ff;font-weight:800;letter-spacing:.095em;font-size:.83rem}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(108,248,244,.45);border-radius:11px;color:var(--aqua);box-shadow:inset 0 0 16px rgba(108,248,244,.12);font-size:1.3rem}.utility{display:flex;align-items:center;gap:8px}.small-button,.secondary-button{background:rgba(19,39,72,.82);color:#dbeaff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;transition:background .2s,border-color .2s}.small-button:hover,.secondary-button:hover{background:rgba(34,66,110,.92);border-color:rgba(108,248,244,.44)}
+    .hero{text-align:center;max-width:760px;margin:0 auto 27px}.eyebrow{display:inline-flex;align-items:center;gap:7px;letter-spacing:.25em;text-transform:uppercase;font-size:.68rem;font-weight:900;color:var(--aqua)}.eyebrow::before,.eyebrow::after{content:"";width:25px;height:1px;background:linear-gradient(90deg,transparent,var(--aqua))}.eyebrow::after{transform:rotate(180deg)}h1{font-size:clamp(2rem,5.5vw,4.4rem);letter-spacing:-.065em;line-height:1.03;margin:10px 0 8px;font-weight:950;text-wrap:balance}.hero .accent{background:linear-gradient(97deg,var(--aqua),#aab5ff 63%,#e9a6fb);background-clip:text;-webkit-text-fill-color:transparent}.hero p{margin:0;color:var(--muted);font-size:clamp(.9rem,1.7vw,1.05rem)}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:20px;align-items:start}.panel{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+    .main-panel{padding:clamp(12px,2.7vw,24px)}.status-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-bottom:15px}.status-card{border-radius:12px;border:1px solid rgba(134,180,247,.13);background:rgba(5,12,29,.45);padding:10px 8px;text-align:center;min-width:0}.status-card .tag{display:block;font-size:.65rem;letter-spacing:.12em;font-weight:800;text-transform:uppercase;color:#8faccb}.status-card strong{display:block;margin-top:2px;font-size:clamp(1.05rem,2.4vw,1.45rem);font-variant-numeric:tabular-nums}.status-card:first-child strong{color:var(--aqua)}
+    .board-frame{border-radius:19px;border:1px solid rgba(92,148,219,.19);background:radial-gradient(circle at 50% 50%,#112444 0%,#071428 67%,#06101e 100%);position:relative;overflow:hidden;max-width:650px;margin:0 auto;aspect-ratio:1}.board-frame::after{content:"";position:absolute;inset:9px;border:1px solid rgba(98,178,232,.06);pointer-events:none;border-radius:14px}canvas{display:block;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}
+    .board-caption{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#9db3d2;font-size:.74rem;padding:13px 1px 5px}.board-caption span:last-child{color:var(--aqua)}
+    .action-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}.action-bar button{flex:1 1 110px;max-width:175px}.control-panel{padding:20px;display:grid;gap:18px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-heading h2{font-size:1rem;margin:0;letter-spacing:.01em}.panel-heading span{font-size:.68rem;color:var(--aqua);font-weight:900;letter-spacing:.1em}.instruction{margin:0;color:var(--muted);font-size:.88rem}
+    .pad{display:grid;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(3,54px);gap:7px;justify-content:center;user-select:none}.pad button{border-radius:14px;border:1px solid rgba(108,248,244,.33);background:linear-gradient(140deg,rgba(42,83,129,.82),rgba(16,30,62,.9));color:var(--aqua);font-size:1.25rem;font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);touch-action:manipulation}.pad button:active{transform:translateY(2px);background:rgba(66,149,190,.38)}.pad .up{grid-column:2;grid-row:1}.pad .left{grid-column:1;grid-row:2}.pad .centre{grid-column:2;grid-row:2;display:grid;place-items:center;color:#4d7ca5;border-color:rgba(121,165,232,.12);font-size:1rem;background:rgba(14,27,48,.6);pointer-events:none}.pad .right{grid-column:3;grid-row:2}.pad .down{grid-column:2;grid-row:3}
+    .tips{border-top:1px solid var(--line);padding-top:15px;display:grid;gap:10px}.tips h3{font-size:.8rem;letter-spacing:.1em;color:#c9e3ff;text-transform:uppercase;margin:0}.key{border:1px solid #57718f;border-bottom-width:2px;padding:2px 6px;border-radius:5px;font-size:.75rem;color:#dceaff;background:rgba(255,255,255,.035);white-space:nowrap}.tips p{margin:0;font-size:.78rem;color:var(--muted)}.legend{display:grid;grid-template-columns:1fr 1fr;gap:8px}.legend-item{display:flex;align-items:center;gap:7px;font-size:.72rem;color:#c4d5ed}.swatch{width:12px;height:12px;flex:none;border-radius:3px;box-shadow:0 0 11px currentColor}.goal{color:#71e5a8;background:#71e5a8}.fragile{color:#ff7c9d;background:#ff7c9d}.switch{color:#ffc780;background:#ffc780}.bridge{color:#b3a6ff;background:#b3a6ff}.portal{color:#f39cff;background:#f39cff}.floor{color:#358ac6;background:#358ac6}
+    .help-link{display:block;width:100%;font-size:.8rem;color:var(--aqua);text-align:left;border:0;background:none;padding:0;text-decoration:underline;text-underline-offset:4px}.foot{margin-top:25px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#849ab8;font-size:.73rem}.foot a{color:#b6ddf4;text-decoration:none}.foot a:hover{text-decoration:underline}.message{min-height:1.4em;margin:2px 0 0;color:var(--aqua);font-size:.83rem;text-align:center}
+    dialog{border:1px solid rgba(135,213,243,.38);border-radius:24px;padding:0;background:#101d36;color:var(--text);box-shadow:0 30px 110px rgba(0,0,0,.85);max-width:min(94vw,520px);max-height:90vh;overflow:auto}dialog::backdrop{background:rgba(0,4,14,.78);backdrop-filter:blur(5px)}.dialog-body{padding:clamp(20px,4vw,33px)}dialog h2{font-size:clamp(1.45rem,4vw,2.15rem);letter-spacing:-.04em;margin:9px 0}dialog p{color:var(--muted);font-size:.93rem;line-height:1.6}.dialog-kicker{color:var(--aqua);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:900}.dialog-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.primary-button{border:1px solid rgba(145,255,247,.48);border-radius:12px;background:linear-gradient(125deg,#69f8ea,#8dfbd1);padding:12px 18px;color:#082335;font-weight:900;flex:1;box-shadow:0 8px 25px rgba(81,239,212,.16)}.primary-button:hover{filter:brightness(1.07)}.dialog-actions .secondary-button{flex:1}.levels-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:16px 0}.levels-grid button{aspect-ratio:1;border-radius:10px;background:#192e4f;border:1px solid #314b71;color:var(--text);font-weight:800;min-width:0}.levels-grid button[aria-current="true"]{color:#051d2d;background:var(--aqua)}.levels-grid button.done{border-color:#65bb9e}.levels-grid button:disabled{opacity:.27}.level-explain{font-size:.78rem}.rule-list{padding-left:20px;font-size:.87rem;color:#bdd0e7;line-height:1.75}.rule-list li+li{margin-top:4px}
+    @media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}.control-panel{grid-template-columns:1fr 1fr;align-items:start}.control-panel .tips{grid-column:1 / -1}.board-frame{max-width:550px}.hero{margin-bottom:20px}}
+    @media(max-width:520px){.topbar{flex-wrap:wrap}.site{padding:13px 11px 30px}.topbar{margin-bottom:19px}.signature{font-size:.68rem;gap:7px}.mark{width:32px;height:32px}.small-button{padding:8px 9px;font-size:.76rem}.hero h1{font-size:clamp(1.85rem,9vw,3rem)}.hero p{font-size:.83rem}.main-panel{padding:9px}.status-strip{gap:5px;margin-bottom:9px}.status-card{padding:7px 3px}.status-card .tag{font-size:.58rem}.status-card strong{font-size:1.05rem}.board-frame{border-radius:12px}.control-panel{grid-template-columns:1fr;padding:15px;gap:12px}.control-panel .tips{grid-column:auto}.pad{grid-template-columns:repeat(3,minmax(60px,78px));grid-template-rows:repeat(3,52px)}.board-caption{font-size:.68rem;padding:9px 2px 2px}.board-caption span:first-child{max-width:68%}.action-bar{gap:5px}.action-bar button{flex-basis:90px;font-size:.8rem;padding:9px}.foot{justify-content:center;text-align:center}.levels-grid{grid-template-columns:repeat(5,1fr)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
 </head>
 <body>
-
-<div id="ui">
-Level: <span id="lvl">1</span>
+<div class="site">
+  <header class="topbar">
+    <a class="signature" href="https://corneliusaurelius.com" title="Cornelius Aurelius home"><span class="mark" aria-hidden="true">∞</span> CORNELIUS AURELIUS</a>
+    <div class="utility">
+      <button id="soundBtn" class="small-button" type="button" aria-pressed="false">♫ Sound off</button>
+      <button id="helpBtn" class="small-button" type="button">? Help</button>
+    </div>
+  </header>
+  <main>
+    <div class="hero">
+      <span class="eyebrow">Mind over matter</span>
+      <h1>NEON BLOCK <span class="accent">FLIP ∞ OMEGA</span></h1>
+      <p>Roll the prism. Navigate the void. Stand upright on the green core to win.</p>
+    </div>
+    <div class="layout">
+      <section class="panel main-panel" aria-label="Game board and progress">
+        <div class="status-strip" aria-live="off">
+          <div class="status-card"><span class="tag">Level</span><strong id="levelText">01 / 30</strong></div>
+          <div class="status-card"><span class="tag">Moves</span><strong id="movesText">0</strong></div>
+          <div class="status-card"><span class="tag">Target</span><strong id="parText">—</strong></div>
+          <div class="status-card"><span class="tag">Best</span><strong id="bestText">—</strong></div>
+        </div>
+        <div class="board-frame"><canvas id="game" role="img" aria-label="Rolling block puzzle board. Use arrow keys, WASD, on-screen buttons or swipe to move."></canvas></div>
+        <div class="board-caption"><span>CYAN = YOUR PRISM · GREEN = GOAL</span><span id="boardLabel">CHAMBER 01</span></div>
+        <p class="message" id="statusMessage" role="status" aria-live="polite">Use the arrows to roll.</p>
+        <div class="action-bar">
+          <button id="undoBtn" class="secondary-button" type="button" title="Undo last move (Z)">↶ Undo</button>
+          <button id="restartBtn" class="secondary-button" type="button" title="Restart level (R)">↻ Restart</button>
+          <button id="levelsBtn" class="secondary-button" type="button">☷ Levels</button>
+        </div>
+      </section>
+      <aside class="panel control-panel" aria-label="Game controls and legend">
+        <div class="panel-heading"><h2>PRISM CONTROLS</h2><span>4 DIRECTIONS</span></div>
+        <p class="instruction">Keep the prism balanced on the platform. Move one roll at a time.</p>
+        <div class="pad" aria-label="Directional controls">
+          <button class="up" data-dir="up" type="button" aria-label="Move up">↑</button>
+          <button class="left" data-dir="left" type="button" aria-label="Move left">←</button>
+          <span class="centre" aria-hidden="true">✦</span>
+          <button class="right" data-dir="right" type="button" aria-label="Move right">→</button>
+          <button class="down" data-dir="down" type="button" aria-label="Move down">↓</button>
+        </div>
+        <div class="tips">
+          <h3>How to play</h3>
+          <p><span class="key">↑ ↓ ← →</span> or <span class="key">W A S D</span> to roll. Swipe on touchscreens.</p>
+          <p><span class="key">Z</span> to undo · <span class="key">R</span> to restart. Falling into the void restarts your attempt.</p>
+          <div class="legend">
+            <span class="legend-item"><i class="swatch floor"></i> Solid floor</span>
+            <span class="legend-item"><i class="swatch goal"></i> Goal core</span>
+            <span class="legend-item"><i class="swatch fragile"></i> Fragile floor</span>
+            <span class="legend-item"><i class="swatch switch"></i> Switch</span>
+            <span class="legend-item"><i class="swatch bridge"></i> Bridge</span>
+            <span class="legend-item"><i class="swatch portal"></i> Portal</span>
+          </div>
+          <button id="howBtn" class="help-link" type="button">See full rules and special tiles</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer class="foot"><span>© <span id="year"></span> Cornelius Aurelius · A free browser puzzle game</span><a href="https://corneliusaurelius.com">Explore more at corneliusaurelius.com</a></footer>
 </div>
-
-<canvas id="game" width="420" height="420"></canvas>
-
-<div id="msgbox">
-  <div id="msg"></div>
-  <button onclick="nextLevel()">Next Level</button>
-</div>
-
-<footer>
-Created by CORNELIUS AURELIUS —
-<a href="https://zenodo.org/records/17362534" target="_blank" style="color:#0ff;">Zenodo Peace</a>
-</footer>
-
+<dialog id="winDialog" aria-labelledby="winTitle"><div class="dialog-body"><span class="dialog-kicker" id="winKicker">Chamber cleared</span><h2 id="winTitle">LEVEL COMPLETE!</h2><p id="winDetails"></p><div class="dialog-actions"><button class="secondary-button" id="winReplay" type="button">Replay</button><button class="primary-button" id="winNext" type="button">Next level →</button></div></div></dialog>
+<dialog id="levelsDialog" aria-labelledby="levelTitle"><div class="dialog-body"><span class="dialog-kicker">Mission select</span><h2 id="levelTitle">Choose a chamber</h2><p class="level-explain">Complete each level to unlock the next. Your best scores are saved on this device.</p><div class="levels-grid" id="levelGrid"></div><div class="dialog-actions"><button class="secondary-button" id="closeLevels" type="button">Close</button></div></div></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-body"><span class="dialog-kicker">Pilot handbook</span><h2 id="helpTitle">How to play</h2><p>Each move tips the prism onto its side or rolls it upright. Occupy solid floor tiles only, and land <strong>upright</strong> on the green goal to finish the chamber.</p><ol class="rule-list"><li><strong>Move:</strong> Arrow keys, WASD, touch direction buttons or swipe on the board.</li><li><strong>Void:</strong> The prism falls if any part goes beyond the platform. The level restarts.</li><li><strong>Fragile (pink with crack):</strong> Supports a prism lying down, but breaks under an upright prism.</li><li><strong>Switch (amber ⚡):</strong> Stand upright to toggle bridges on or off.</li><li><strong>Bridge (purple ⬡):</strong> Crossable only when a switch has activated it.</li><li><strong>Portals (magenta ⇄):</strong> Standing upright on one sends the prism to the other.</li><li><strong>Undo:</strong> Press Z or Undo to reverse a valid move. R restarts the chamber.</li></ol><p>Complete all 30 different chambers. Aim to finish at or under the target number of moves.</p><div class="dialog-actions"><button class="primary-button" id="closeHelp" type="button">Got it — play!</button></div></div></dialog>
 <script>
-/* ============================================================
-       NEON BLOCK FLIP ∞ OMEGA — FINAL COMPLETE ENGINE
-============================================================ */
-
-const canvas=document.getElementById("game");
-const ctx=canvas.getContext("2d");
-
-/* ===== BLOCK STATES =====
-1 = upright
-2 = horizontal (2 tiles wide)
-3 = vertical   (2 tiles tall)
-*/
-
-let block={x:2,y:1,state:1};
-
-let currentLevel = localStorage.nbf_level ? +localStorage.nbf_level : 1;
-document.getElementById("lvl").textContent = currentLevel;
-
-/* ====== TILE TYPES ======
-0 = void / empty
-1 = normal tile
-2 = goal tile
-3 = fragile tile
-4 = switch
-5 = bridge (toggled)
-6 = teleporter
-7 = hole (fail)
-============================ */
-
-/* ============================================================
-    LEVEL SET (up to 30 levels)
-============================================================ */
-
-const LEVELS = [
-/* Level 1 */
-[
-[0,1,1,1,0],
-[0,1,2,1,0],
-[0,1,1,1,0],
-[0,0,1,0,0],
-[0,0,1,0,0]
-],
-/* Level 2 */
-[
-[0,0,1,1,1],
-[0,0,1,2,1],
-[1,1,1,1,1],
-[1,0,0,0,0],
-[1,1,1,1,1]
-],
-/* Level 3 */
-[
-[1,1,1,1,1],
-[1,4,1,2,1],
-[1,1,1,1,1],
-[1,5,1,1,1],
-[1,1,1,1,1]
-],
-/* Level 4 */
-[
-[1,1,3,1,1],
-[1,6,1,7,1],
-[1,1,1,1,1],
-[0,0,1,0,0],
-[0,0,2,0,0]
-],
-/* Level 5 */
-[
-[1,1,1,1,1],
-[1,0,0,0,1],
-[1,0,2,0,1],
-[1,0,0,0,1],
-[1,1,1,1,1]
-],
-/* Level 6 */
-[
-[0,0,1,0,0],
-[1,1,1,1,1],
-[1,4,1,5,1],
-[1,1,3,1,1],
-[0,0,2,0,0]
-],
-/* Level 7 */
-[
-[1,1,1,1,1],
-[1,6,1,6,1],
-[1,1,2,1,1],
-[1,3,3,3,1],
-[1,1,1,1,1]
-],
-/* Level 8 */
-[
-[1,1,1,1,1],
-[1,4,1,5,1],
-[1,1,1,1,1],
-[1,7,7,7,1],
-[1,1,2,1,1]
-],
-/* Level 9 */
-[
-[1,1,1,1,1],
-[1,3,3,3,1],
-[1,3,2,3,1],
-[1,3,3,3,1],
-[1,1,1,1,1]
-],
-/* Level 10 */
-[
-[1,1,1,1,1],
-[1,6,1,6,1],
-[1,1,1,1,1],
-[1,4,5,4,1],
-[1,1,2,1,1]
-],
-/* Levels 11–30: procedurally generated simple puzzles */
-];
-
-while(LEVELS.length<30){
-    let g=[[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[1,4,5,4,1],[1,1,1,1,1]];
-    LEVELS.push(g);
+"use strict";
+const LEVELS = [{"name":"01","grid":["G####",".#.##","#####","#.###","#.###"],"start":[4,3],"par":9,"minMoves":7},{"name":"02","grid":["....#","...G.","####.","...##","##.##"],"start":[4,4],"par":7,"minMoves":5},{"name":"03","grid":[".#...",".#..#","####.","G####","##.#."],"start":[3,4],"par":9,"minMoves":7},{"name":"04","grid":["#####","#####",".####","#####",".##.G"],"start":[1,1],"par":8,"minMoves":6},{"name":"05","grid":["#####","##.##","G.###","#####","F#.##"],"start":[3,4],"par":9,"minMoves":7},{"name":"06","grid":["####.#","######",".##..#",".##..#","#.####",".#G##."],"start":[5,0],"par":11,"minMoves":9},{"name":"07","grid":["###.##","###.##","##.##G","#####.","####.#",".#.###"],"start":[0,0],"par":12,"minMoves":10},{"name":"08","grid":["######","#####.","##.###",".#F###","##..G#","###.#."],"start":[2,5],"par":12,"minMoves":10},{"name":"09","grid":["######","######","#.##.#","##SB.#","##.##.","..G##."],"start":[0,4],"par":11,"minMoves":9},{"name":"10","grid":[".#####",".#..##",".....#","..####","#G##..","#..#.."],"start":[4,0],"par":12,"minMoves":10},{"name":"11","grid":[".###..","..#..#",".###G.","...###","##.F.#","#####."],"start":[1,4],"par":13,"minMoves":11},{"name":"12","grid":["####G#","##.P##","###..#","##.##A","######","####.#"],"start":[3,5],"par":11,"minMoves":9},{"name":"13","grid":["#.#.###","##.##.#","..###..","#.#..#.","#####.#","#.#####",".####G#"],"start":[6,0],"par":15,"minMoves":13},{"name":"14","grid":["...##.#",".##.###","BSG#..#","...F...","##.###.",".#..###","###..##"],"start":[6,6],"par":13,"minMoves":11},{"name":"15","grid":["##...#.","#.###G#",".###.##",".#...##","##.####",".##.###","###.#.#"],"start":[1,5],"par":13,"minMoves":11},{"name":"16","grid":["#####G.","#.#####","##..###","####.##","###.#.#","#.#.###","####.##"],"start":[3,3],"par":15,"minMoves":13},{"name":"17","grid":["##G####","####.#.",".#.#..#",".#..##.","##F#.#.","#..#.#.",".######"],"start":[5,5],"par":16,"minMoves":14},{"name":"18","grid":["##...##","#..##..","###....","####.#.","##.####","..####.","##.##G."],"start":[0,0],"par":14,"minMoves":12},{"name":"19","grid":["A.#####","..###.#","..#.###","....###","..##S#P","#B#G#.#","##..##."],"start":[2,2],"par":15,"minMoves":13},{"name":"20","grid":[".#.##G#","#.#.###","#####F#","###...#","#####.#","..#..#.","#######"],"start":[5,6],"par":15,"minMoves":13},{"name":"21","grid":["#######","####...","##.##.#","G..####","#.##.##",".####.#","######."],"start":[0,6],"par":16,"minMoves":14},{"name":"22","grid":["#.##.#.","#.#.###",".#####.","..#..##","####.##","#..##.#","##G#.##"],"start":[5,3],"par":16,"minMoves":14},{"name":"23","grid":["#..###.#","####.###","..###.#.","########","########","##.#....","###.##.#","####F##G"],"start":[7,4],"par":17,"minMoves":15},{"name":"24","grid":["...#.#..",".###..##",".##.####","..######","#.#..##.","#####.SG","#####.##","####..#B"],"start":[2,7],"par":17,"minMoves":15},{"name":"25","grid":["#..##.##","#.#####.","###..###","##...###","###G.###","###.####","#######.","########"],"start":[4,1],"par":17,"minMoves":15},{"name":"26","grid":["#...#...","#.#.##.#","#.#...##","#.###..#","G.##P..#","A###.###","F#...###","######.."],"start":[7,2],"par":19,"minMoves":17},{"name":"27","grid":[".#.#####","######.#","###..###","#####..#",".####..#","G#.##.##","#..#####","#######."],"start":[5,1],"par":19,"minMoves":17},{"name":"28","grid":[".#.###..","##..####","###.####","####..##","##..####","###.#..G","#..###..","#####.##"],"start":[0,3],"par":19,"minMoves":17},{"name":"29","grid":["##S##.##","##.#.##.","#.#B####",".####F##",".#..#.##","####.###","##.####.","#....##G"],"start":[0,2],"par":20,"minMoves":18},{"name":"30","grid":["#G###..#","#.##.###","#.#..###","##.#....","##...###","####..##","##.##.#.","########"],"start":[6,7],"par":20,"minMoves":18}];
+const DIRS = {up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+const $ = id => document.getElementById(id);
+const canvas=$('game'), ctx=canvas.getContext('2d',{alpha:false});
+const winDialog=$('winDialog'), levelsDialog=$('levelsDialog'), helpDialog=$('helpDialog');
+const STORE='neon_block_flip_omega_v2';
+let settings={unlocked:1,current:1,best:{},sound:false};
+try{
+  const saved=JSON.parse(localStorage.getItem(STORE)||'null');
+  if(saved && typeof saved==='object'){
+    settings={...settings,...saved};
+    if(!settings.best || typeof settings.best!=='object')settings.best={};
+  }else{
+    const old=parseInt(localStorage.getItem('nbf_level')||'1',10);
+    if(Number.isInteger(old)&&old>=1&&old<=30)settings.unlocked=old;
+  }
+}catch(_){/* private browsing and storage disabled: game remains playable */}
+settings.unlocked=Math.max(1,Math.min(30,Number(settings.unlocked)||1));
+settings.current=Math.max(1,Math.min(settings.unlocked,Number(settings.current)||1));
+const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(settings))}catch(_){}};
+let levelNumber=settings.current, level=LEVELS[levelNumber-1], block=null, moves=0, history=[],locked=false,boardWidth=500,lastFrame=0,animId=0;
+let audioCtx=null;
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function chime(kind){
+  if(!settings.sound)return;
+  try{
+    const Audio=window.AudioContext||window.webkitAudioContext;
+    if(!Audio)return;
+    if(!audioCtx)audioCtx=new Audio();
+    if(audioCtx.state==='suspended')audioCtx.resume();
+    const now=audioCtx.currentTime;
+    const tones=kind==='win'?[660,880,1100]:kind==='fail'?[190,130]:[230];
+    tones.forEach((hz,i)=>{const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type=kind==='fail'?'triangle':'sine';osc.frequency.value=hz;gain.gain.setValueAtTime(.0001,now+i*.095);gain.gain.exponentialRampToValueAtTime(.065,now+i*.095+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+i*.095+.15);osc.connect(gain).connect(audioCtx.destination);osc.start(now+i*.095);osc.stop(now+i*.095+.16)});
+  }catch(_){/* Audio is optional */}
 }
-
-/* ============================================================== */
-
-function loadLevel(n){
-    grid = JSON.parse(JSON.stringify(LEVELS[n-1]));
-    block={x:2,y:1,state:1};
-    draw();
+function announce(text){$('statusMessage').textContent=text;}
+function tileAt(x,y){return level.grid[y]?.[x]??'.';}
+function occupied(b){const a=[[b.x,b.y]];if(b.o==='H')a.push([b.x+1,b.y]);if(b.o==='V')a.push([b.x,b.y+1]);return a;}
+function nextPosition(b,dx,dy){
+  const {x,y,o}=b;
+  if(o==='U'){
+    if(dx===1)return {x,y,o:'H',bridge:b.bridge};
+    if(dx===-1)return {x:x-1,y,o:'H',bridge:b.bridge};
+    if(dy===1)return {x,y,o:'V',bridge:b.bridge};
+    return {x,y:y-1,o:'V',bridge:b.bridge};
+  }
+  if(o==='H'){
+    if(dx===1)return {x:x+2,y,o:'U',bridge:b.bridge};
+    if(dx===-1)return {x:x-1,y,o:'U',bridge:b.bridge};
+    return {x,y:y+dy,o:'H',bridge:b.bridge};
+  }
+  if(dy===1)return {x,y:y+2,o:'U',bridge:b.bridge};
+  if(dy===-1)return {x,y:y-1,o:'U',bridge:b.bridge};
+  return {x:x+dx,y,o:'V',bridge:b.bridge};
 }
-
-let grid=[];
-loadLevel(currentLevel);
-
-/* ============================================================== */
-
-function draw(){
-    ctx.clearRect(0,0,420,420);
-
-    for(let y=0;y<5;y++){
-        for(let x=0;x<5;x++){
-            let t=grid[y][x];
-
-            if(t===0) continue;
-
-            let col = "rgba(0,255,255,0.25)";
-            if(t===2) col="#0f0";
-            if(t===3) col="#f00";
-            if(t===4) col="#0ff";
-            if(t===5) col="#555";
-            if(t===6) col="#f0f";
-            if(t===7) col="#333";
-
-            ctx.fillStyle=col;
-            ctx.fillRect(x*80+5,y*80+5,70,70);
-        }
-    }
-
-    drawBlock();
+function valid(b){return occupied(b).every(([x,y])=>{
+  const t=tileAt(x,y);
+  return t!=='.'&&t!=='X'&&(t!=='B'||b.bridge)&&(t!=='F'||b.o!=='U');
+});}
+function attempt(direction){
+  if(locked || winDialog.open || levelsDialog.open || helpDialog.open)return;
+  const delta=DIRS[direction]; if(!delta)return;
+  const next=nextPosition(block,...delta);
+  moves++;
+  if(!valid(next)){
+    locked=true;chime('fail');announce('Prism lost! Chamber restarting…');render();
+    window.setTimeout(()=>{locked=false;restart(true);announce('Try again. Watch the void and fragile tiles.');},prefersReducedMotion?100:390);
+    return;
+  }
+  if(next.o==='U' && tileAt(next.x,next.y)==='S')next.bridge=!next.bridge;
+  if(next.o==='U' && 'AP'.includes(tileAt(next.x,next.y))){
+    const target=tileAt(next.x,next.y)==='A'?'P':'A';
+    const ty=level.grid.findIndex(row=>row.includes(target));
+    if(ty!==-1){next.x=level.grid[ty].indexOf(target);next.y=ty;}
+  }
+  if(!valid(next)){
+    locked=true;chime('fail');announce('Unsafe landing! Restarting…');render();
+    window.setTimeout(()=>{locked=false;restart(true);},prefersReducedMotion?100:390);
+    return;
+  }
+  history.push({...block});block=next;
+  chime('step');updateHud();render();
+  if(next.o==='U' && tileAt(next.x,next.y)==='G'){complete();return;}
+  if(next.o==='U' && tileAt(next.x,next.y)==='S')announce(next.bridge?'Bridge activated!':'Bridge deactivated.');
+  else if(next.o==='U' && 'AP'.includes(tileAt(next.x,next.y)))announce('Portal activated!');
+  else announce('Keep going — stand upright on the green core.');
 }
-
-function drawBlock(){
-    ctx.fillStyle="#0ff";
-    ctx.shadowBlur=20;
-    ctx.shadowColor="#0ff";
-
-    let b=block;
-    if(b.state===1){
-        ctx.fillRect(b.x*80+15,b.y*80+15,50,50);
-    }
-    if(b.state===2){
-        ctx.fillRect(b.x*80+10,b.y*80+15,120,50);
-    }
-    if(b.state===3){
-        ctx.fillRect(b.x*80+15,b.y*80+10,50,120);
-    }
-
-    ctx.shadowBlur=0;
+function updateHud(){
+  $('levelText').textContent=String(levelNumber).padStart(2,'0')+' / 30';
+  $('movesText').textContent=moves;
+  $('parText').textContent=level.par;
+  $('bestText').textContent=Number.isFinite(settings.best[levelNumber])?settings.best[levelNumber]:'—';
+  $('boardLabel').textContent='CHAMBER '+String(levelNumber).padStart(2,'0');
+  $('undoBtn').disabled=locked||!history.length;
+  const label='Chamber '+levelNumber+'. '+level.grid.length+' by '+level.grid.length+' board. '+moves+' moves. Use directional controls to roll the prism.';
+  canvas.setAttribute('aria-label',label);
 }
-
-function step(dx,dy){
-    let b=block;
-    let x=b.x, y=b.y, s=b.state;
-
-    if(s===1){
-        if(dx===1) block={x:x,y:y,state:2};
-        if(dx===-1)block={x:x-1,y:y,state:2};
-        if(dy===1) block={x:x,y:y,state:3};
-        if(dy===-1)block={x:x,y:y-1,state:3};
-    }
-    else if(s===2){
-        if(dx===1)block={x:x+2,y:y,state:1};
-        if(dx===-1)block={x:x-1,y:y,state:1};
-        if(dy!==0)block={x:x,y:y+dy,state:2};
-    }
-    else if(s===3){
-        if(dy===1)block={x:x,y:y+2,state:1};
-        if(dy===-1)block={x:x,y:y-1,state:1};
-        if(dx!==0)block={x:x+dx,y:y,state:3};
-    }
-
-    checkFail();
-    draw();
+function restart(quiet=false){
+  block={x:level.start[0],y:level.start[1],o:'U',bridge:false};moves=0;history=[];locked=false;updateHud();render();if(!quiet)announce('Chamber restarted. You can do it!');
 }
-
-function isValidTile(x,y){
-    return x>=0 && y>=0 && x<5 && y<5 && grid[y][x]!==0;
+function setLevel(number){
+  if(!Number.isInteger(number)||number<1||number>settings.unlocked)return;
+  levelNumber=number;level=LEVELS[number-1];settings.current=number;save();restart(true);
+  announce('Chamber '+number+'. Roll the prism to the green goal.');
 }
-
-function checkFail(){
-    let b=block, x=b.x, y=b.y, s=b.state;
-
-    let tiles=[];
-    if(s===1) tiles=[[x,y]];
-    if(s===2) tiles=[[x,y],[x+1,y]];
-    if(s===3) tiles=[[x,y],[x,y+1]];
-
-    for(let t of tiles){
-        if(!isValidTile(t[0],t[1])){
-            resetLevel();
-            return;
-        }
-        if(grid[t[1]][t[0]]===7){
-            resetLevel();
-            return;
-        }
-        if(grid[t[1]][t[0]]===3 && s!==1){
-            resetLevel();
-            return;
-        }
-    }
-
-    // Teleporter
-    if(s===1 && grid[y][x]===6){
-        teleport();
-        return;
-    }
-
-    // Switch
-    if(s===1 && grid[y][x]===4){
-        toggleBridge();
-    }
-
-    // Goal
-    if(s===1 && grid[y][x]===2){
-        completeLevel();
-    }
+function undo(){if(locked||!history.length||winDialog.open||levelsDialog.open||helpDialog.open)return;block=history.pop();moves=Math.max(0,moves-1);updateHud();render();announce('Last roll undone.');}
+function complete(){
+  const prior=settings.best[levelNumber];
+  if(!Number.isFinite(prior)||moves<prior)settings.best[levelNumber]=moves;
+  if(levelNumber<30)settings.unlocked=Math.max(settings.unlocked,levelNumber+1);
+  settings.current=Math.min(levelNumber+1,30);save();locked=true;chime('win');
+  $('winKicker').textContent=levelNumber===30?'All chambers conquered':'Chamber cleared';
+  $('winTitle').textContent=levelNumber===30?'OMEGA COMPLETE!':'LEVEL COMPLETE!';
+  $('winDetails').textContent=`${moves} moves · Target ${level.par} · ${moves<=level.par?'Target achieved!':'Chamber solved!'}`+(levelNumber===30?' You have completed all 30 puzzles.':' Next chamber unlocked.');
+  $('winNext').textContent=levelNumber===30?'Replay from level 1':'Next level →';
+  winDialog.showModal();announce('Chamber complete in '+moves+' moves!');
 }
-
-function teleport(){
-    for(let yy=0;yy<5;yy++){
-        for(let xx=0;xx<5;xx++){
-            if(grid[yy][xx]===6 && (xx!==block.x||yy!==block.y)){
-                block={x:xx,y:yy,state:1};
-                draw();
-                return;
-            }
-        }
-    }
+function levelPicker(){
+  const grid=$('levelGrid');grid.replaceChildren();
+  for(let i=1;i<=30;i++){
+    const b=document.createElement('button');b.textContent=String(i).padStart(2,'0');b.type='button';
+    b.disabled=i>settings.unlocked;
+    if(Number.isFinite(settings.best[i]))b.classList.add('done');
+    if(i===levelNumber)b.setAttribute('aria-current','true');
+    b.setAttribute('aria-label',`Level ${i}${b.disabled?', locked':Number.isFinite(settings.best[i])?', best '+settings.best[i]+' moves':''}`);
+    b.addEventListener('click',()=>{levelsDialog.close();setLevel(i);});grid.appendChild(b);
+  }
+  levelsDialog.showModal();
 }
-
-function toggleBridge(){
-    for(let yy=0;yy<5;yy++){
-        for(let xx=0;xx<5;xx++){
-            if(grid[yy][xx]===5) grid[yy][xx]=1;
-            else if(grid[yy][xx]===1) ; 
-        }
-    }
-}
-
-function completeLevel(){
-    document.getElementById("msg").textContent="LEVEL COMPLETE!";
-    document.getElementById("msgbox").style.display="block";
-}
-
-function nextLevel(){
-    document.getElementById("msgbox").style.display="none";
-    currentLevel++;
-    if(currentLevel>30) currentLevel=1;
-    localStorage.nbf_level=currentLevel;
-    document.getElementById("lvl").textContent=currentLevel;
-    loadLevel(currentLevel);
-}
-
-function resetLevel(){
-    loadLevel(currentLevel);
-}
-
-
-/* Keyboard */
-document.addEventListener("keydown",e=>{
-    if(e.key==="ArrowUp") step(0,-1);
-    if(e.key==="ArrowDown") step(0,1);
-    if(e.key==="ArrowLeft") step(-1,0);
-    if(e.key==="ArrowRight") step(1,0);
+function openHelp(){helpDialog.showModal();}
+$('helpBtn').addEventListener('click',openHelp);$('howBtn').addEventListener('click',openHelp);
+$('closeHelp').addEventListener('click',()=>helpDialog.close());
+$('undoBtn').addEventListener('click',undo);$('restartBtn').addEventListener('click',()=>{if(!locked)restart()});
+$('levelsBtn').addEventListener('click',levelPicker);$('closeLevels').addEventListener('click',()=>levelsDialog.close());
+$('winReplay').addEventListener('click',()=>{winDialog.close();restart();});
+$('winNext').addEventListener('click',()=>{winDialog.close();setLevel(levelNumber===30?1:levelNumber+1);});
+$('soundBtn').addEventListener('click',()=>{settings.sound=!settings.sound;save();showSound();if(settings.sound)chime('step');});
+function showSound(){$('soundBtn').textContent=settings.sound?'♫ Sound on':'♫ Sound off';$('soundBtn').setAttribute('aria-pressed',String(settings.sound));}
+for(const btn of document.querySelectorAll('[data-dir]'))btn.addEventListener('click',()=>attempt(btn.dataset.dir));
+document.addEventListener('keydown',event=>{
+  if(event.altKey||event.ctrlKey||event.metaKey||event.repeat||event.target.matches('input,textarea,[contenteditable]'))return;
+  if(winDialog.open||levelsDialog.open||helpDialog.open)return;
+  const key=event.key.toLowerCase();
+  const dirs={arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'};
+  if(dirs[key]){event.preventDefault();attempt(dirs[key]);}
+  else if(key==='z'){event.preventDefault();undo();}
+  else if(key==='r'){event.preventDefault();if(!locked)restart();}
 });
-
-/* Touch Swipe */
-let sx=0,sy=0;
-canvas.addEventListener("touchstart",e=>{
-    sx=e.touches[0].clientX;
-    sy=e.touches[0].clientY;
+let initialPointer=null;
+canvas.addEventListener('pointerdown',event=>{if(event.pointerType==='mouse')return;initialPointer={x:event.clientX,y:event.clientY,id:event.pointerId};});
+canvas.addEventListener('pointerup',event=>{
+  if(!initialPointer||event.pointerId!==initialPointer.id)return;
+  const dx=event.clientX-initialPointer.x,dy=event.clientY-initialPointer.y;initialPointer=null;
+  if(Math.max(Math.abs(dx),Math.abs(dy))<Math.max(22,canvas.clientWidth*.055))return;
+  attempt(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');
 });
-canvas.addEventListener("touchend",e=>{
-    let dx=e.changedTouches[0].clientX - sx;
-    let dy=e.changedTouches[0].clientY - sy;
-    if(Math.abs(dx)>Math.abs(dy)){
-        if(dx>30) step(1,0);
-        if(dx<-30) step(-1,0);
-    } else {
-        if(dy>30) step(0,1);
-        if(dy<-30) step(0,-1);
+canvas.addEventListener('pointercancel',()=>initialPointer=null);
+function rect(x,y,w,h,r,fill){ctx.fillStyle=fill;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
+function render(now=0){
+  if(!ctx)return;
+  const cssWidth=canvas.clientWidth||boardWidth,side=cssWidth;
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const px=Math.max(1,Math.round(side*dpr));
+  if(canvas.width!==px||canvas.height!==px){canvas.width=px;canvas.height=px;}
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,side,side);
+  const grad=ctx.createRadialGradient(side/2,side*.35,0,side/2,side/2,side*.75);
+  grad.addColorStop(0,'#13274a');grad.addColorStop(1,'#061021');ctx.fillStyle=grad;ctx.fillRect(0,0,side,side);
+  for(let i=0;i<52;i++){
+    const x=((i*127.3+73)%997)/997*side,y=((i*231.8+37)%991)/991*side;
+    ctx.fillStyle=`rgba(143,215,255,${.09+(i%5)*.024})`;ctx.fillRect(x,y,1.1,1.1);
+  }
+  const n=level.grid.length,pad=side*.072,cell=(side-pad*2)/n,gap=Math.max(2.5,cell*.085),inset=gap*.5;
+  rect(pad-8,pad-8,cell*n+16,cell*n+16,16,'rgba(7,17,33,.51)');
+  ctx.strokeStyle='rgba(111,168,228,.09)';ctx.strokeRect(pad-1,pad-1,cell*n+2,cell*n+2);
+  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+    const t=tileAt(x,y);if(t==='.')continue;
+    const xx=pad+x*cell+inset,yy=pad+y*cell+inset,wh=cell-gap;
+    let base='#153b5e',border='#3872a3';
+    if(t==='G'){base='#125c4d';border='#82ffc0';}
+    if(t==='F'){base='#62314a';border='#f28ea8';}
+    if(t==='S'){base='#76512f';border='#fbc078';}
+    if(t==='B'){base=block.bridge?'#4f427a':'#202c43';border=block.bridge?'#b5a8ff':'#4c5573';}
+    if(t==='A'||t==='P'){base='#593869';border='#efa4ff';}
+    if(t==='X'){base='#452b36';border='#f16d82';}
+    ctx.shadowColor=border;ctx.shadowBlur=t==='G'?12:4;
+    rect(xx,yy,wh,wh,Math.max(4,cell*.12),base);ctx.shadowBlur=0;
+    ctx.strokeStyle=border;ctx.lineWidth=Math.max(1,cell*.026);ctx.beginPath();ctx.roundRect(xx+.8,yy+.8,wh-1.6,wh-1.6,Math.max(4,cell*.12));ctx.stroke();
+    rect(xx+5,yy+4,Math.max(2,wh-10),Math.max(2,cell*.045),2,'rgba(255,255,255,.14)');
+    if(t==='G'){
+      ctx.strokeStyle='#8effc1';ctx.lineWidth=Math.max(2,cell*.04);ctx.beginPath();ctx.arc(xx+wh/2,yy+wh/2,wh*.19,0,Math.PI*2);ctx.stroke();
+      ctx.fillStyle='#aaffd7';ctx.beginPath();ctx.arc(xx+wh/2,yy+wh/2,Math.max(2,wh*.052),0,Math.PI*2);ctx.fill();
+    }else if(t==='S'||t==='B'||t==='F'||t==='A'||t==='P'){
+      ctx.font=`700 ${Math.round(cell*.38)}px system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle=t==='S'?'#ffdc98':t==='B'?'#c2b5ff':t==='F'?'#ffc4d4':'#ffc5ff';
+      ctx.fillText(t==='S'?'⚡':t==='B'?'⬡':t==='F'?'╳':'⇄',xx+wh/2,yy+wh/2+1);
     }
-});
+  }
+  if(block){
+    const x=pad+block.x*cell+inset+cell*.07,y=pad+block.y*cell+inset+cell*.07;
+    const ww=(block.o==='H'?2:1)*cell-gap-cell*.14,hh=(block.o==='V'?2:1)*cell-gap-cell*.14;
+    ctx.shadowColor='#39f7ff';ctx.shadowBlur=Math.max(10,cell*.36);
+    const shine=ctx.createLinearGradient(x,y,x+ww,y+hh);shine.addColorStop(0,'#b9ffff');shine.addColorStop(.45,'#42c7e8');shine.addColorStop(1,'#0d5896');
+    rect(x,y,ww,hh,Math.max(5,cell*.13),shine);ctx.shadowBlur=0;
+    ctx.strokeStyle='#dcffff';ctx.lineWidth=Math.max(1.6,cell*.035);ctx.beginPath();ctx.roundRect(x+1,y+1,ww-2,hh-2,Math.max(5,cell*.13));ctx.stroke();
+    ctx.strokeStyle='rgba(6,55,96,.5)';ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(x+ww*.26,y+hh*.28);ctx.lineTo(x+ww*.74,y+hh*.28);ctx.lineTo(x+ww*.78,y+hh*.72);ctx.lineTo(x+ww*.22,y+hh*.72);ctx.closePath();ctx.stroke();
+    if(block.o==='U'){
+      ctx.fillStyle='#f4ffff';ctx.beginPath();ctx.arc(x+ww/2,y+hh/2,Math.max(2,ww*.065),0,Math.PI*2);ctx.fill();
+    }
+  }
+}
+if('ResizeObserver' in window){const resizeObserver=new ResizeObserver(()=>render());resizeObserver.observe(canvas);}else{window.addEventListener('resize',()=>render());}
+$('year').textContent=new Date().getFullYear();showSound();setLevel(levelNumber);
+// No constant animation loop: keep CPU use and battery drain low on mobile devices.
 </script>
-
 </body>
 </html>

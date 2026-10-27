@@ -31,6 +31,79 @@
     @media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}.control-panel{grid-template-columns:1fr 1fr;align-items:start}.control-panel .tips{grid-column:1 / -1}.board-frame{max-width:550px}.hero{margin-bottom:20px}}
     @media(max-width:520px){.topbar{flex-wrap:wrap}.site{padding:13px 11px 30px}.topbar{margin-bottom:19px}.signature{font-size:.68rem;gap:7px}.mark{width:32px;height:32px}.small-button{padding:8px 9px;font-size:.76rem}.hero h1{font-size:clamp(1.85rem,9vw,3rem)}.hero p{font-size:.83rem}.main-panel{padding:9px}.status-strip{gap:5px;margin-bottom:9px}.status-card{padding:7px 3px}.status-card .tag{font-size:.58rem}.status-card strong{font-size:1.05rem}.board-frame{border-radius:12px}.control-panel{grid-template-columns:1fr;padding:15px;gap:12px}.control-panel .tips{grid-column:auto}.pad{grid-template-columns:repeat(3,minmax(60px,78px));grid-template-rows:repeat(3,52px)}.board-caption{font-size:.68rem;padding:9px 2px 2px}.board-caption span:first-child{max-width:68%}.action-bar{gap:5px}.action-bar button{flex-basis:90px;font-size:.8rem;padding:9px}.foot{justify-content:center;text-align:center}.levels-grid{grid-template-columns:repeat(5,1fr)}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  /* OMEGA 3D Edition visual system — three readable, symbol-coded palettes. */
+:root{--aqua:#64efff;--mint:#5dffb3;--pink:#df89ff;--bg:#050b1e;--bg2:#101e41;--glass:rgba(15,25,57,.84);--line:rgba(115,154,233,.27);--muted:#bbcae8;--text:#f4f7ff;--radius:24px;--shadow:0 35px 115px rgba(0,0,0,.46)}
+:root[data-theme="voltage"]{--aqua:#ffd16b;--mint:#e2fd77;--pink:#f1b0ff;--bg:#100a20;--bg2:#392345;--glass:rgba(36,20,58,.86);--line:rgba(251,165,110,.28);--muted:#e4c9e8;--text:#fff5eb}
+:root[data-theme="candy"]{--aqua:#ff96e1;--mint:#dcff79;--pink:#adacff;--bg:#06191d;--bg2:#193e51;--glass:rgba(6,40,49,.85);--line:rgba(82,221,206,.26);--muted:#c1dce2;--text:#fff5ff}
+body{background:radial-gradient(ellipse 45% 40% at 17% 8%,rgba(29,98,179,.34),transparent),radial-gradient(ellipse 55% 42% at 87% 73%,rgba(167,57,181,.16),transparent),var(--bg)}
+.site{max-width:1230px;padding-top:25px}
+.topbar{margin-bottom:20px}
+.mark{font-size:1.38rem;background:linear-gradient(125deg,rgba(91,235,255,.17),transparent)}
+.small-button,.secondary-button{background:rgba(35,55,97,.68);border-color:var(--line);color:var(--text)}
+.hero{margin-bottom:25px}
+.eyebrow{color:var(--mint)}
+.hero h1{font-size:clamp(2.2rem,5.4vw,4.5rem);letter-spacing:-.075em;text-shadow:0 6px 35px rgba(12,65,135,.28)}
+.hero .accent{background:linear-gradient(97deg,#5df3fc 0%,#a7b7ff 50%,#ff98d0 92%);background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#c7d9f5}
+.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:15px}
+.hero-badge{border:1px solid rgba(111,241,224,.29);border-radius:100px;padding:5px 11px;font-size:.68rem;letter-spacing:.08em;color:var(--mint);background:rgba(18,55,75,.53);font-weight:800}
+.layout{grid-template-columns:minmax(0,1fr) 305px;gap:22px}
+.panel{border-color:var(--line);box-shadow:0 20px 80px rgba(1,2,22,.47),inset 0 1px 0 rgba(255,255,255,.035)}
+.main-panel{padding:clamp(13px,2.6vw,22px)}
+.status-card{background:linear-gradient(180deg,rgba(16,32,69,.88),rgba(9,18,46,.58));border:1px solid rgba(137,186,255,.16)}
+.status-card strong{font-size:clamp(1.1rem,2.4vw,1.6rem);color:#fff}
+.status-card .tag{color:#b5c9f0}
+.board-frame{background:linear-gradient(130deg,#071027,#162955);border-color:rgba(139,189,255,.28);box-shadow:inset 0 1px 40px rgba(19,89,171,.14),0 10px 35px rgba(1,4,24,.3)}
+.board-frame::after{border-color:rgba(130,195,250,.10)}
+.board-caption{font-weight:750;letter-spacing:.045em;font-size:.70rem}
+.board-caption span:last-child{color:var(--mint)}
+.stage-title{margin:12px 2px 0;text-align:center;color:#fff;font-size:1.22rem;letter-spacing:-.025em;font-weight:850}
+.stage-chapter{margin:1px 2px;text-align:center;font-size:.66rem;color:var(--mint);letter-spacing:.18em;font-weight:800}
+.progress-micro{display:flex;gap:12px;align-items:center;justify-content:center;padding:9px 0 0;color:#c7d9f5;font-size:.77rem}
+.progress-micro strong{color:var(--mint);letter-spacing:.05em}
+.message{color:#8af4ff;font-weight:650;margin-top:9px;min-height:1.9em}
+.action-bar{margin-top:10px}
+.action-bar button{max-width:none;flex-basis:110px;font-weight:650}
+.action-bar #hintBtn{border-color:rgba(255,204,120,.36);color:#ffe0ab}
+.control-panel{padding:21px;gap:14px}
+.instruction{color:#d1dff8}
+.pad{grid-template-columns:repeat(3,65px);grid-template-rows:repeat(3,57px)}
+.pad button{border:1px solid rgba(105,236,252,.45);color:#c4faff;font-size:1.5rem;background:linear-gradient(160deg,#244f85,#182452);box-shadow:0 4px 16px rgba(4,8,24,.2),inset 0 1px 0 rgba(255,255,255,.13)}
+.pad button:hover{border-color:var(--mint);filter:brightness(1.14)}
+.pad button.hint-glow{border-color:#fff0a1;box-shadow:0 0 20px rgba(255,213,90,.8);background:#895e31;color:white}
+.tips{border-color:var(--line)}
+.legend-item{font-size:.72rem;color:#e7efff}
+.swatch{height:14px;width:14px;border-radius:4px}
+.goal{color:#51ffaa;background:#51ffaa}.floor{color:#4b92f7;background:#4b92f7}.fragile{color:#ff719b;background:#ff719b}.switch{color:#ffc76c;background:#ffc76c}.bridge{color:#bca7ff;background:#bca7ff}.portal{color:#f3a2ff;background:#f3a2ff}
+.levels-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.levels-grid button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1px;min-height:60px;background:linear-gradient(155deg,#253665,#182341);font-size:.94rem}
+.levels-grid button small{color:var(--mint);font-size:.61rem;letter-spacing:-.09em}
+.levels-grid button[aria-current="true"]{background:linear-gradient(135deg,var(--aqua),var(--mint));color:#051e2a}
+.levels-grid button[aria-current="true"] small{color:#063329}
+.levels-grid button.done{border-color:#69e8bb}
+#winStars{font-size:2.4rem;letter-spacing:.06em;text-align:center;color:#ffdd71;text-shadow:0 0 23px rgba(255,216,97,.35)}
+.theme-instruction{margin:0;text-align:center;color:#a6b9db;font-size:.69rem}
+.primary-button{background:linear-gradient(120deg,var(--aqua),var(--mint));color:#021e29}
+.dialog-kicker{color:var(--mint)}
+@media(max-width:880px){.layout{grid-template-columns:1fr}.control-panel{grid-template-columns:1fr 1fr}.control-panel .tips{grid-column:1/-1}.board-frame{max-width:630px}.hero{margin-bottom:17px}}
+@media(max-width:520px){.site{padding:13px 10px 30px}.topbar{margin-bottom:15px}.hero h1{font-size:clamp(1.9rem,9vw,3.1rem)}.hero-badges{margin-top:10px}.status-card{padding:8px 2px}.status-card .tag{font-size:.56rem}.status-card strong{font-size:1.02rem}.stage-title{font-size:1.1rem}.control-panel{grid-template-columns:1fr}.control-panel .tips{grid-column:auto}.board-frame{max-width:none}.pad{grid-template-columns:repeat(3,minmax(63px,77px));grid-template-rows:repeat(3,52px)}.levels-grid{grid-template-columns:repeat(5,1fr)}.action-bar button{font-size:.76rem;padding:10px 5px;flex-basis:85px}.signature{font-size:.65rem}.utility{gap:5px}.small-button{font-size:.72rem;padding:8px}.board-caption{font-size:.61rem}.board-caption span:first-child{max-width:70%}}
+@media(prefers-reduced-motion:reduce){.hint-glow{transition:none!important}}
+
+.mobile-controls{display:none}
+@media(max-width:520px){
+ .topbar{flex-wrap:nowrap;gap:6px}.signature{font-size:0;gap:6px}.signature::after{content:"CORNELIUS";font-size:.67rem;letter-spacing:.065em}.mark{font-size:1.3rem;flex:none}
+ .topbar .utility{gap:4px}.topbar .small-button{font-size:.67rem;padding:7px 6px}
+ .hero-badges{display:none}.hero{margin-bottom:11px}.hero h1{font-size:clamp(1.85rem,8.5vw,2.75rem);margin:6px 0}.hero .eyebrow{font-size:.56rem}
+ .hero p{font-size:.76rem}.hero{max-width:360px}.stage-title{margin:5px 1px 3px;font-size:1rem}.stage-chapter{font-size:.6rem}
+ .status-strip{margin-bottom:5px}.board-frame{margin-top:5px}
+ .mobile-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-width:325px;margin:9px auto 4px}
+ .mobile-controls button{min-height:46px;border-radius:11px;font-weight:850;font-size:1.35rem;touch-action:manipulation;color:var(--aqua);background:linear-gradient(145deg,rgba(36,91,160,.82),rgba(17,43,92,.9));border:1px solid rgba(112,248,253,.46)}
+ .mobile-controls button:active{background:var(--aqua);color:#07102e}
+ .mobile-controls button.hint-glow{border:2px solid #ffe382;box-shadow:0 0 16px rgba(255,221,109,.8)}
+ .control-panel .pad{display:none}.control-panel .theme-instruction{display:none}
+ .progress-micro{flex-wrap:wrap;gap:6px;font-size:.65rem;padding:6px 0}.board-caption{padding-top:6px}
+}
+
   </style>
 </head>
 <body>
@@ -38,28 +111,39 @@
   <header class="topbar">
     <a class="signature" href="https://corneliusaurelius.com" title="Cornelius Aurelius home"><span class="mark" aria-hidden="true">∞</span> CORNELIUS AURELIUS</a>
     <div class="utility">
+      <button id="themeBtn" class="small-button" type="button" title="Change colour theme">◈ Aurora</button>
       <button id="soundBtn" class="small-button" type="button" aria-pressed="false">♫ Sound off</button>
       <button id="helpBtn" class="small-button" type="button">? Help</button>
     </div>
   </header>
   <main>
     <div class="hero">
-      <span class="eyebrow">Mind over matter</span>
+      <span class="eyebrow">PRECISION OVER CHAOS</span>
       <h1>NEON BLOCK <span class="accent">FLIP ∞ OMEGA</span></h1>
-      <p>Roll the prism. Navigate the void. Stand upright on the green core to win.</p>
+      <p>Tip the 2 × 1 prism across floating platforms. Stand upright and drop into the glowing exit.</p>
+    <div class="hero-badges"><span class="hero-badge">◆ REAL 3D ROLL PHYSICS</span><span class="hero-badge">✦ 33 SOLVABLE CHAMBERS</span><span class="hero-badge">★ 3-STAR MASTERY</span></div>
     </div>
     <div class="layout">
       <section class="panel main-panel" aria-label="Game board and progress">
         <div class="status-strip" aria-live="off">
-          <div class="status-card"><span class="tag">Level</span><strong id="levelText">01 / 30</strong></div>
+          <div class="status-card"><span class="tag">Level</span><strong id="levelText">01 / 33</strong></div>
           <div class="status-card"><span class="tag">Moves</span><strong id="movesText">0</strong></div>
           <div class="status-card"><span class="tag">Target</span><strong id="parText">—</strong></div>
           <div class="status-card"><span class="tag">Best</span><strong id="bestText">—</strong></div>
         </div>
+        <p class="stage-chapter" id="chapterText">THE FIRST ROLL</p><h2 class="stage-title" id="stageName">First Contact</h2>
         <div class="board-frame"><canvas id="game" role="img" aria-label="Rolling block puzzle board. Use arrow keys, WASD, on-screen buttons or swipe to move."></canvas></div>
-        <div class="board-caption"><span>CYAN = YOUR PRISM · GREEN = GOAL</span><span id="boardLabel">CHAMBER 01</span></div>
+        <div class="mobile-controls" aria-label="Mobile direction pad">
+          <button data-dir="up" aria-label="Move up" type="button">↑</button>
+          <button data-dir="left" aria-label="Move left" type="button">←</button>
+          <button data-dir="down" aria-label="Move down" type="button">↓</button>
+          <button data-dir="right" aria-label="Move right" type="button">→</button>
+        </div>
+        <div class="board-caption"><span>MOVE THE METAL BLOCK · REACH THE EXIT HOLE</span><span id="boardLabel">CHAMBER 01</span></div>
         <p class="message" id="statusMessage" role="status" aria-live="polite">Use the arrows to roll.</p>
+        <div class="progress-micro">MASTERY <strong id="starTotal">0 / 99 ★</strong> <span>·</span> <span>Finish under target for extra stars</span></div>
         <div class="action-bar">
+          <button id="hintBtn" class="secondary-button" type="button" title="One-step hint (H)">✦ Hint</button>
           <button id="undoBtn" class="secondary-button" type="button" title="Undo last move (Z)">↶ Undo</button>
           <button id="restartBtn" class="secondary-button" type="button" title="Restart level (R)">↻ Restart</button>
           <button id="levelsBtn" class="secondary-button" type="button">☷ Levels</button>
@@ -67,7 +151,7 @@
       </section>
       <aside class="panel control-panel" aria-label="Game controls and legend">
         <div class="panel-heading"><h2>PRISM CONTROLS</h2><span>4 DIRECTIONS</span></div>
-        <p class="instruction">Keep the prism balanced on the platform. Move one roll at a time.</p>
+        <p class="instruction">Every move tips a real 2 × 1 prism. Carefully predict both landing squares.</p>
         <div class="pad" aria-label="Directional controls">
           <button class="up" data-dir="up" type="button" aria-label="Move up">↑</button>
           <button class="left" data-dir="left" type="button" aria-label="Move left">←</button>
@@ -75,13 +159,14 @@
           <button class="right" data-dir="right" type="button" aria-label="Move right">→</button>
           <button class="down" data-dir="down" type="button" aria-label="Move down">↓</button>
         </div>
+        <p class="theme-instruction">SWIPE ON THE BOARD · OR TAP A DIRECTION</p>
         <div class="tips">
           <h3>How to play</h3>
           <p><span class="key">↑ ↓ ← →</span> or <span class="key">W A S D</span> to roll. Swipe on touchscreens.</p>
-          <p><span class="key">Z</span> to undo · <span class="key">R</span> to restart. Falling into the void restarts your attempt.</p>
+          <p><span class="key">Z</span> to undo · <span class="key">H</span> for a hint · <span class="key">R</span> to restart. Falling into the void restarts your attempt.</p>
           <div class="legend">
             <span class="legend-item"><i class="swatch floor"></i> Solid floor</span>
-            <span class="legend-item"><i class="swatch goal"></i> Goal core</span>
+            <span class="legend-item"><i class="swatch goal"></i> Exit hole</span>
             <span class="legend-item"><i class="swatch fragile"></i> Fragile floor</span>
             <span class="legend-item"><i class="swatch switch"></i> Switch</span>
             <span class="legend-item"><i class="swatch bridge"></i> Bridge</span>
@@ -94,224 +179,375 @@
   </main>
   <footer class="foot"><span>© <span id="year"></span> Cornelius Aurelius · A free browser puzzle game</span><a href="https://corneliusaurelius.com">Explore more at corneliusaurelius.com</a></footer>
 </div>
-<dialog id="winDialog" aria-labelledby="winTitle"><div class="dialog-body"><span class="dialog-kicker" id="winKicker">Chamber cleared</span><h2 id="winTitle">LEVEL COMPLETE!</h2><p id="winDetails"></p><div class="dialog-actions"><button class="secondary-button" id="winReplay" type="button">Replay</button><button class="primary-button" id="winNext" type="button">Next level →</button></div></div></dialog>
+<dialog id="winDialog" aria-labelledby="winTitle"><div class="dialog-body"><span class="dialog-kicker" id="winKicker">Chamber cleared</span><h2 id="winTitle">LEVEL COMPLETE!</h2><div id="winStars" role="img" aria-label="Stars earned"></div><p id="winDetails"></p><div class="dialog-actions"><button class="secondary-button" id="winReplay" type="button">Replay</button><button class="primary-button" id="winNext" type="button">Next level →</button></div></div></dialog>
 <dialog id="levelsDialog" aria-labelledby="levelTitle"><div class="dialog-body"><span class="dialog-kicker">Mission select</span><h2 id="levelTitle">Choose a chamber</h2><p class="level-explain">Complete each level to unlock the next. Your best scores are saved on this device.</p><div class="levels-grid" id="levelGrid"></div><div class="dialog-actions"><button class="secondary-button" id="closeLevels" type="button">Close</button></div></div></dialog>
-<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-body"><span class="dialog-kicker">Pilot handbook</span><h2 id="helpTitle">How to play</h2><p>Each move tips the prism onto its side or rolls it upright. Occupy solid floor tiles only, and land <strong>upright</strong> on the green goal to finish the chamber.</p><ol class="rule-list"><li><strong>Move:</strong> Arrow keys, WASD, touch direction buttons or swipe on the board.</li><li><strong>Void:</strong> The prism falls if any part goes beyond the platform. The level restarts.</li><li><strong>Fragile (pink with crack):</strong> Supports a prism lying down, but breaks under an upright prism.</li><li><strong>Switch (amber ⚡):</strong> Stand upright to toggle bridges on or off.</li><li><strong>Bridge (purple ⬡):</strong> Crossable only when a switch has activated it.</li><li><strong>Portals (magenta ⇄):</strong> Standing upright on one sends the prism to the other.</li><li><strong>Undo:</strong> Press Z or Undo to reverse a valid move. R restarts the chamber.</li></ol><p>Complete all 30 different chambers. Aim to finish at or under the target number of moves.</p><div class="dialog-actions"><button class="primary-button" id="closeHelp" type="button">Got it — play!</button></div></div></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-body"><span class="dialog-kicker">Pilot handbook</span><h2 id="helpTitle">How to play</h2><p>Each move tips the prism onto its side or rolls it upright. Occupy solid floor tiles only, and land <strong>upright</strong> in the glowing exit hole to finish the chamber.</p><ol class="rule-list"><li><strong>Move:</strong> Arrow keys, WASD, touch direction buttons or swipe on the board.</li><li><strong>Void:</strong> The prism falls if any part goes beyond the platform. The level restarts.</li><li><strong>Fragile (pink with crack):</strong> Supports a prism lying down, but breaks under an upright prism.</li><li><strong>Switch (amber ⚡):</strong> Stand upright to toggle bridges on or off.</li><li><strong>Bridge (purple ⬡):</strong> Crossable only when a switch has activated it.</li><li><strong>Portals (magenta ⇄):</strong> Standing upright on one sends the prism to the other.</li><li><strong>Undo:</strong> Press Z or Undo to reverse a valid move. R restarts the chamber.</li><li><strong>Hint (H):</strong> Shows one safe move from your current position. Perfect 3-star runs use no hints.</li><li><strong>Mastery:</strong> Earn 1–3 stars per chamber. Finish efficiently without hints or falls for 3 stars. Change the colour theme anytime.</li></ol><p>Complete all 33 unique, verified-solvable chambers. Aim to finish at or under the target number of moves.</p><div class="dialog-actions"><button class="primary-button" id="closeHelp" type="button">Got it — play!</button></div></div></dialog>
 <script>
-"use strict";
-const LEVELS = [{"name":"01","grid":["G####",".#.##","#####","#.###","#.###"],"start":[4,3],"par":9,"minMoves":7},{"name":"02","grid":["....#","...G.","####.","...##","##.##"],"start":[4,4],"par":7,"minMoves":5},{"name":"03","grid":[".#...",".#..#","####.","G####","##.#."],"start":[3,4],"par":9,"minMoves":7},{"name":"04","grid":["#####","#####",".####","#####",".##.G"],"start":[1,1],"par":8,"minMoves":6},{"name":"05","grid":["#####","##.##","G.###","#####","F#.##"],"start":[3,4],"par":9,"minMoves":7},{"name":"06","grid":["####.#","######",".##..#",".##..#","#.####",".#G##."],"start":[5,0],"par":11,"minMoves":9},{"name":"07","grid":["###.##","###.##","##.##G","#####.","####.#",".#.###"],"start":[0,0],"par":12,"minMoves":10},{"name":"08","grid":["######","#####.","##.###",".#F###","##..G#","###.#."],"start":[2,5],"par":12,"minMoves":10},{"name":"09","grid":["######","######","#.##.#","##SB.#","##.##.","..G##."],"start":[0,4],"par":11,"minMoves":9},{"name":"10","grid":[".#####",".#..##",".....#","..####","#G##..","#..#.."],"start":[4,0],"par":12,"minMoves":10},{"name":"11","grid":[".###..","..#..#",".###G.","...###","##.F.#","#####."],"start":[1,4],"par":13,"minMoves":11},{"name":"12","grid":["####G#","##.P##","###..#","##.##A","######","####.#"],"start":[3,5],"par":11,"minMoves":9},{"name":"13","grid":["#.#.###","##.##.#","..###..","#.#..#.","#####.#","#.#####",".####G#"],"start":[6,0],"par":15,"minMoves":13},{"name":"14","grid":["...##.#",".##.###","BSG#..#","...F...","##.###.",".#..###","###..##"],"start":[6,6],"par":13,"minMoves":11},{"name":"15","grid":["##...#.","#.###G#",".###.##",".#...##","##.####",".##.###","###.#.#"],"start":[1,5],"par":13,"minMoves":11},{"name":"16","grid":["#####G.","#.#####","##..###","####.##","###.#.#","#.#.###","####.##"],"start":[3,3],"par":15,"minMoves":13},{"name":"17","grid":["##G####","####.#.",".#.#..#",".#..##.","##F#.#.","#..#.#.",".######"],"start":[5,5],"par":16,"minMoves":14},{"name":"18","grid":["##...##","#..##..","###....","####.#.","##.####","..####.","##.##G."],"start":[0,0],"par":14,"minMoves":12},{"name":"19","grid":["A.#####","..###.#","..#.###","....###","..##S#P","#B#G#.#","##..##."],"start":[2,2],"par":15,"minMoves":13},{"name":"20","grid":[".#.##G#","#.#.###","#####F#","###...#","#####.#","..#..#.","#######"],"start":[5,6],"par":15,"minMoves":13},{"name":"21","grid":["#######","####...","##.##.#","G..####","#.##.##",".####.#","######."],"start":[0,6],"par":16,"minMoves":14},{"name":"22","grid":["#.##.#.","#.#.###",".#####.","..#..##","####.##","#..##.#","##G#.##"],"start":[5,3],"par":16,"minMoves":14},{"name":"23","grid":["#..###.#","####.###","..###.#.","########","########","##.#....","###.##.#","####F##G"],"start":[7,4],"par":17,"minMoves":15},{"name":"24","grid":["...#.#..",".###..##",".##.####","..######","#.#..##.","#####.SG","#####.##","####..#B"],"start":[2,7],"par":17,"minMoves":15},{"name":"25","grid":["#..##.##","#.#####.","###..###","##...###","###G.###","###.####","#######.","########"],"start":[4,1],"par":17,"minMoves":15},{"name":"26","grid":["#...#...","#.#.##.#","#.#...##","#.###..#","G.##P..#","A###.###","F#...###","######.."],"start":[7,2],"par":19,"minMoves":17},{"name":"27","grid":[".#.#####","######.#","###..###","#####..#",".####..#","G#.##.##","#..#####","#######."],"start":[5,1],"par":19,"minMoves":17},{"name":"28","grid":[".#.###..","##..####","###.####","####..##","##..####","###.#..G","#..###..","#####.##"],"start":[0,3],"par":19,"minMoves":17},{"name":"29","grid":["##S##.##","##.#.##.","#.#B####",".####F##",".#..#.##","####.###","##.####.","#....##G"],"start":[0,2],"par":20,"minMoves":18},{"name":"30","grid":["#G###..#","#.##.###","#.#..###","##.#....","##...###","####..##","##.##.#.","########"],"start":[6,7],"par":20,"minMoves":18}];
-const DIRS = {up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
-const $ = id => document.getElementById(id);
-const canvas=$('game'), ctx=canvas.getContext('2d',{alpha:false});
-const winDialog=$('winDialog'), levelsDialog=$('levelsDialog'), helpDialog=$('helpDialog');
-const STORE='neon_block_flip_omega_v2';
-let settings={unlocked:1,current:1,best:{},sound:false};
-try{
-  const saved=JSON.parse(localStorage.getItem(STORE)||'null');
+'use strict';
+/* Neon Block Flip ∞ OMEGA — 3D Edition
+   Fixed, solver-validated stages. True 2x1 cuboid tipping physics.
+   All logic stays offline, no third-party dependencies. */
+const LEVELS = [{"grid":["#####","#####",".#G##","##..#","##.#."],"start":[3,2],"minMoves":3,"par":4,"name":"First Contact","chapter":1,"mechanic":"basic","solution":"ULD"},{"grid":["..#..","#.##.","##G#.","#####","##.##"],"start":[0,3],"minMoves":8,"par":9,"name":"The Edge","chapter":1,"mechanic":"basic","solution":"RRULDLUR"},{"grid":["#..##","#.#G#","#.###","#####","#####"],"start":[3,2],"minMoves":9,"par":10,"name":"Long Way Home","chapter":1,"mechanic":"basic","solution":"DRULURDLU"},{"grid":["##..#.","#..###","###..#","#G###.","###..#","##...."],"start":[0,1],"minMoves":8,"par":9,"name":"Mind the Gap","chapter":1,"mechanic":"basic","solution":"DDRULDRU"},{"grid":["#G####",".##..#","###.#.","######",".#####","#####."],"start":[4,2],"minMoves":8,"par":9,"name":"Blue Shift","chapter":1,"mechanic":"basic","solution":"DDLUULUU"},{"grid":["######","#..##.","#...##","####G#",".#####","#.##.#"],"start":[3,3],"minMoves":12,"par":14,"name":"Zero Gravity","chapter":1,"mechanic":"basic","solution":"DLURDRULDLUR"},{"grid":["###..##",".#.#.##",".####F#","###.###","##.####","##...G#","#.#.###"],"start":[5,6],"minMoves":9,"par":10,"name":"Cracked Ice","chapter":2,"mechanic":"fragile","solution":"URULURDLD"},{"grid":["#######","F###...","##.###G","####.##",".##...#","#######","##..#.#"],"start":[1,6],"minMoves":13,"par":15,"name":"Glass Bridge","chapter":2,"mechanic":"fragile","solution":"UUULDRDDRRRUU"},{"grid":["#####.#","#F#..G#","####.##","###..#.","#######",".#.####",".#####."],"start":[4,0],"minMoves":12,"par":14,"name":"One Wrong Step","chapter":2,"mechanic":"fragile","solution":"LLDRDLDRRRUU"},{"grid":["##.##.#","#F#.##.","#######","##.###G","#.###.#","###.##.","#######"],"start":[1,3],"minMoves":15,"par":17,"name":"Fragile Ground","chapter":2,"mechanic":"fragile","solution":"ULDDDRULUURRRDR"},{"grid":[".##.###","#######","#####..","#.##..#","G###.#.","#.F####",".###..."],"start":[2,6],"minMoves":23,"par":26,"name":"Thin Ice","chapter":2,"mechanic":"fragile","solution":"URUURURDLLDLURDRULDRDLL"},{"grid":["######.#","##..#..#","####G.#.","##BS####",".##.##.#","#.#.####","#####.##","#######."],"start":[6,5],"minMoves":12,"par":14,"name":"Power Switch","chapter":2,"mechanic":"switch","solution":"LUULLLURDRUR"},{"grid":[".#####.#","####.###","##..##.#","###BS###","#..###..",".#######",".##.#.##",".###G#.#"],"start":[7,0],"minMoves":15,"par":17,"name":"Cross the Void","chapter":3,"mechanic":"switch","solution":"DDLLDRULDRULDDD"},{"grid":["..#.###.",".##...#.","..#.##.#","..#####.","##.#####","..#.#.B#",".####.#G","#######S"],"start":[1,6],"minMoves":14,"par":16,"name":"Reactor Online","chapter":3,"mechanic":"switch","solution":"RDRRRULULURDRD"},{"grid":["#.#####.",".###.###","###.##BG","#.###.S#","#.###.#.","###.####","########","#.###.#."],"start":[0,6],"minMoves":24,"par":28,"name":"Break the Circuit","chapter":3,"mechanic":"switch","solution":"RRRRUUULULLDDDDLURURRURR"},{"grid":["#.#.#.#.#","#####A###","#.###.#.#","#####.#.#",".........",".###..###","##.#.####","####.####",".####G.P#"],"start":[1,3],"minMoves":14,"par":16,"name":"Warp Gate","chapter":3,"mechanic":"portal","solution":"RRULLDRUURULLD"},{"grid":["##.#.#.#.","#########","A#######.","..#.#####",".........","#########","####G##.#","########.","######P#."],"start":[0,0],"minMoves":20,"par":23,"name":"Through the Rift","chapter":3,"mechanic":"portal","solution":"DRRRRRRDLULLLLUULDRU"},{"grid":["######.##","#####.###","A####.#.#","#.#######",".........","######..#","#P.####.#","#########",".####G#.#"],"start":[2,1],"minMoves":16,"par":18,"name":"Twin Portals","chapter":3,"mechanic":"portal","solution":"DRULDLDRRRRULDDR"},{"grid":[".#######.",".####.##.","#########","###.#A###",".........","######.##",".###G####","#####P###","###..####"],"start":[6,1],"minMoves":21,"par":24,"name":"No Way Back","chapter":4,"mechanic":"portal","solution":"DLLULLDRURDRRDLULDRUL"},{"grid":["#####.##","###.##..","######.#","###.####","##.G#.##","#..#.#.#","##F####.",".#######"],"start":[2,1],"minMoves":14,"par":16,"name":"Three-Point Turn","chapter":4,"mechanic":"fragile","solution":"LURDLLDDDRDRUU"},{"grid":[".#.####.","##F#.###","####..#.","#G#...#.","#...####","###.###.","######..",".#####.#"],"start":[1,5],"minMoves":19,"par":22,"name":"Silent Circuit","chapter":4,"mechanic":"fragile","solution":"DRULDRRRURUUULLDLLD"},{"grid":["..######","####.#.#","F#.#.###","####.###","#.######","####....","G.######","...#.#.#"],"start":[2,0],"minMoves":21,"par":24,"name":"Double Jeopardy","chapter":4,"mechanic":"fragile","solution":"RRDDRDLURRDLLLULULDDD"},{"grid":["########","S######.","###.####","#..#.#.#","B#####G.",".#####.#",".#..####",".#..####"],"start":[2,5],"minMoves":18,"par":21,"name":"Under Pressure","chapter":4,"mechanic":"switch","solution":"RRUUURDLULLLDDRRRR"},{"grid":["##.#.#..",".###.#.#","#.##.###",".##.##.#","..#GB###","##S#.###","###...##","###....#"],"start":[2,3],"minMoves":18,"par":21,"name":"Voltage Drop","chapter":4,"mechanic":"switch","solution":"DDLURDLURURRRDLULL"},{"grid":["###.####","##B##.##","#G#...#.",".####..#","#.#.####",".####S##","####.###","##.##.#."],"start":[1,6],"minMoves":20,"par":23,"name":"Narrow Escape","chapter":5,"mechanic":"switch","solution":"RURRDRULLDRULLLUUULD"},{"grid":[".##.#..##","#...#####","#.###.###","###.#####","###.####.","##..#####","S.#####G#","####..#.#","#B#.####."],"start":[0,1],"minMoves":17,"par":20,"name":"The Long Roll","chapter":5,"mechanic":"switch","solution":"DDRULDDDRRURRURRD"},{"grid":["#######.#","###.####G","..##.#B##","#####.#.#",".##..###.","#########","#####.##.","#..###S##","#####.#.#"],"start":[1,4],"minMoves":19,"par":22,"name":"Pressure Chamber","chapter":5,"mechanic":"switch","solution":"DRRDRRUUUURDLULDRUR"},{"grid":["###..####","#.#.#.###",".###.####","########A",".........","#.#######","###.#.###","#####.#P#","###G##..#"],"start":[7,0],"minMoves":18,"par":21,"name":"The Divide","chapter":5,"mechanic":"portal","solution":"DRDURDLUULLLDLLDRR"},{"grid":["#..######",".#..#####","#.#####.A",".###..###",".........","G.#####.#","#.####P##","##.##.#..","####.#..#"],"start":[4,0],"minMoves":19,"par":22,"name":"Dark Matter","chapter":5,"mechanic":"portal","solution":"RDDLURRRRDLULDDLLUU"},{"grid":["##.#....A","#########",".###.#.##","########.",".........","..##G#.P#","######.#.","#.#######","###.#####"],"start":[0,1],"minMoves":21,"par":24,"name":"Last Signal","chapter":5,"mechanic":"portal","solution":"RRDLLURDDRRRURUDDLLUU"},{"grid":["##.#.#.##","###...##.","###.#..##","##S######","..#..####",".##..####","######.##",".#BG.#.##","#.#######"],"start":[1,2],"minMoves":18,"par":21,"name":"The Outer Rim","chapter":5,"mechanic":"switch","solution":"ULDRDLURRDDDDRULDR"},{"grid":["###.##.#.","##S###...","####.#..#","#...###.#","..#####.#","#.##.#.##","######.##",".B##G#...","####.#.##"],"start":[4,1],"minMoves":24,"par":28,"name":"Eclipse Protocol","chapter":5,"mechanic":"switch","solution":"LDLURDLURRRDDDDLULDLURDR"},{"grid":[".#.#####.","######.##","...####..","#####G.##","##.######",".###...##",".##.###.#","#######.#","##S.##B.#"],"start":[1,5],"minMoves":32,"par":37,"name":"Omega Core","chapter":5,"mechanic":"switch","solution":"DRDLURULDRRRDLURRDLULLUURURRULDR"}];
+const TOTAL=LEVELS.length;
+const DIRS={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+const ICON={up:'↑',down:'↓',left:'←',right:'→'};
+const CHAPTERS=['','THE FIRST ROLL','SHATTERPOINT','POWER GRID','QUANTUM RIFT','THE GAUNTLET','OMEGA PROTOCOL'];
+const $=id=>document.getElementById(id);
+const canvas=$('game'),ctx=canvas.getContext('2d',{alpha:false});
+const winDialog=$('winDialog'),levelsDialog=$('levelsDialog'),helpDialog=$('helpDialog');
+const STORAGE='neon_block_flip_omega_v3';
+let settings={unlocked:1,current:1,best:{},sound:false,theme:'aurora'};
+try {
+  const saved=JSON.parse(localStorage.getItem(STORAGE)||'null');
   if(saved && typeof saved==='object'){
     settings={...settings,...saved};
-    if(!settings.best || typeof settings.best!=='object')settings.best={};
+    if(!settings.best||typeof settings.best!=='object')settings.best={};
   }else{
-    const old=parseInt(localStorage.getItem('nbf_level')||'1',10);
-    if(Number.isInteger(old)&&old>=1&&old<=30)settings.unlocked=old;
+    const old=JSON.parse(localStorage.getItem('neon_block_flip_omega_v2')||'null');
+    if(old){
+      // Retain unlocked chambers, but not scores: the original rolling physics was incorrect.
+      settings.unlocked=old.unlocked;settings.current=1;settings.sound=!!old.sound;
+    }else{
+      const legacy=Number(localStorage.getItem('nbf_level'));
+      if(Number.isInteger(legacy)&&legacy>=1&&legacy<=30){settings.unlocked=legacy;settings.current=legacy;}
+    }
   }
-}catch(_){/* private browsing and storage disabled: game remains playable */}
-settings.unlocked=Math.max(1,Math.min(30,Number(settings.unlocked)||1));
+}catch(_){/* Storage is optional. */}
+settings.unlocked=Math.max(1,Math.min(TOTAL,Number(settings.unlocked)||1));
 settings.current=Math.max(1,Math.min(settings.unlocked,Number(settings.current)||1));
-const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(settings))}catch(_){}};
-let levelNumber=settings.current, level=LEVELS[levelNumber-1], block=null, moves=0, history=[],locked=false,boardWidth=500,lastFrame=0,animId=0;
-let audioCtx=null;
-const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function chime(kind){
+if(!['aurora','voltage','candy'].includes(settings.theme))settings.theme='aurora';
+const save=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(settings));}catch(_){}};
+const PALETTES={
+  aurora:{bg:'#07112d',tile:'#213d75',tileHi:'#447dd0',tileEdge:'#0c1b41',tileFront:'#102b64',blockTop:'#dcfaff',blockFront:'#2298f2',blockRight:'#1359ae',blockEdge:'#edffff',glow:'#50e7ff',goal:'#42ffa3',fragile:'#ff648f',switch:'#ffbf68',bridge:'#bba3ff',portal:'#ed86ff',void:'#010b1f'},
+  voltage:{bg:'#130c23',tile:'#494072',tileHi:'#a68aff',tileEdge:'#271d44',tileFront:'#35275a',blockTop:'#fff2c7',blockFront:'#ffae43',blockRight:'#a64b2d',blockEdge:'#fff9d5',glow:'#ffd36d',goal:'#84ff9d',fragile:'#ff7384',switch:'#fff17a',bridge:'#96b8ff',portal:'#fa81ff',void:'#100716'},
+  candy:{bg:'#091b22',tile:'#135a63',tileHi:'#61d6c7',tileEdge:'#08303b',tileFront:'#104450',blockTop:'#ffe8fd',blockFront:'#f679d3',blockRight:'#a73585',blockEdge:'#fff3ff',glow:'#ff9be4',goal:'#e5ff65',fragile:'#ff7a82',switch:'#ffdb7f',bridge:'#a3b3ff',portal:'#d9a3ff',void:'#06171a'}
+};
+let levelNumber=settings.current, level=LEVELS[levelNumber-1],block=null,moves=0,history=[],locked=false;
+let falling=0,hintsUsed=0,startTime=performance.now(),lastHint='',pendingDir=null;
+let animation=null,renderRequest=0,particles=[],audioCtx=null,highlightTimeout=null;
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const soundCtx=()=>{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx;};
+function sound(type){
   if(!settings.sound)return;
   try{
-    const Audio=window.AudioContext||window.webkitAudioContext;
-    if(!Audio)return;
-    if(!audioCtx)audioCtx=new Audio();
-    if(audioCtx.state==='suspended')audioCtx.resume();
-    const now=audioCtx.currentTime;
-    const tones=kind==='win'?[660,880,1100]:kind==='fail'?[190,130]:[230];
-    tones.forEach((hz,i)=>{const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type=kind==='fail'?'triangle':'sine';osc.frequency.value=hz;gain.gain.setValueAtTime(.0001,now+i*.095);gain.gain.exponentialRampToValueAtTime(.065,now+i*.095+.012);gain.gain.exponentialRampToValueAtTime(.0001,now+i*.095+.15);osc.connect(gain).connect(audioCtx.destination);osc.start(now+i*.095);osc.stop(now+i*.095+.16)});
-  }catch(_){/* Audio is optional */}
+    const a=soundCtx(),now=a.currentTime,notes=type==='win'?[523,659,784,1046]:type==='fail'?[165,110]:type==='switch'?[330,550]:type==='portal'?[392,587]:type==='hint'?[530]:[170];
+    notes.forEach((hz,i)=>{const osc=a.createOscillator(),amp=a.createGain();osc.type=type==='fail'?'sawtooth':'sine';osc.frequency.setValueAtTime(hz,now+i*.087);amp.gain.setValueAtTime(.0001,now+i*.087);amp.gain.exponentialRampToValueAtTime(.047,now+i*.087+.014);amp.gain.exponentialRampToValueAtTime(.0001,now+i*.087+.13);osc.connect(amp).connect(a.destination);osc.start(now+i*.087);osc.stop(now+i*.087+.15);});
+  }catch(_){/* Sound is non-essential. */}
 }
-function announce(text){$('statusMessage').textContent=text;}
+function announce(message){$('statusMessage').textContent=message;}
 function tileAt(x,y){return level.grid[y]?.[x]??'.';}
-function occupied(b){const a=[[b.x,b.y]];if(b.o==='H')a.push([b.x+1,b.y]);if(b.o==='V')a.push([b.x,b.y+1]);return a;}
+function occupied(b){return [[b.x,b.y],...(b.o==='H'?[[b.x+1,b.y]]:b.o==='V'?[[b.x,b.y+1]]:[])];}
 function nextPosition(b,dx,dy){
-  const {x,y,o}=b;
+  const {x,y,o,bridge}=b;
   if(o==='U'){
-    if(dx===1)return {x,y,o:'H',bridge:b.bridge};
-    if(dx===-1)return {x:x-1,y,o:'H',bridge:b.bridge};
-    if(dy===1)return {x,y,o:'V',bridge:b.bridge};
-    return {x,y:y-1,o:'V',bridge:b.bridge};
+    if(dx===1)return {x:x+1,y,o:'H',bridge};
+    if(dx===-1)return {x:x-2,y,o:'H',bridge};
+    if(dy===1)return {x,y:y+1,o:'V',bridge};
+    return {x,y:y-2,o:'V',bridge};
   }
   if(o==='H'){
-    if(dx===1)return {x:x+2,y,o:'U',bridge:b.bridge};
-    if(dx===-1)return {x:x-1,y,o:'U',bridge:b.bridge};
-    return {x,y:y+dy,o:'H',bridge:b.bridge};
+    if(dx===1)return {x:x+2,y,o:'U',bridge};
+    if(dx===-1)return {x:x-1,y,o:'U',bridge};
+    return {x,y:y+dy,o:'H',bridge};
   }
-  if(dy===1)return {x,y:y+2,o:'U',bridge:b.bridge};
-  if(dy===-1)return {x,y:y-1,o:'U',bridge:b.bridge};
-  return {x:x+dx,y,o:'V',bridge:b.bridge};
+  if(dy===1)return {x,y:y+2,o:'U',bridge};
+  if(dy===-1)return {x,y:y-1,o:'U',bridge};
+  return {x:x+dx,y,o:'V',bridge};
 }
-function valid(b){return occupied(b).every(([x,y])=>{
-  const t=tileAt(x,y);
-  return t!=='.'&&t!=='X'&&(t!=='B'||b.bridge)&&(t!=='F'||b.o!=='U');
-});}
-function attempt(direction){
-  if(locked || winDialog.open || levelsDialog.open || helpDialog.open)return;
-  const delta=DIRS[direction]; if(!delta)return;
-  const next=nextPosition(block,...delta);
-  moves++;
-  if(!valid(next)){
-    locked=true;chime('fail');announce('Prism lost! Chamber restarting…');render();
-    window.setTimeout(()=>{locked=false;restart(true);announce('Try again. Watch the void and fragile tiles.');},prefersReducedMotion?100:390);
-    return;
+function isValid(b){return occupied(b).every(([x,y])=>{const t=tileAt(x,y);return t!=='.'&&t!=='X'&&(t!=='B'||b.bridge)&&(t!=='F'||b.o!=='U');});}
+function transition(b,dir){
+  const [dx,dy]=DIRS[dir]||[];if(dx===undefined)return null;
+  const landed=nextPosition(b,dx,dy);
+  if(!isValid(landed))return null;
+  let t=landed.o==='U'?tileAt(landed.x,landed.y):'';
+  const resolved={...landed};
+  if(t==='S')resolved.bridge=!resolved.bridge;
+  if(t==='A'||t==='P'){
+    const target=t==='A'?'P':'A',py=level.grid.findIndex(row=>row.includes(target));
+    if(py!==-1){resolved.x=level.grid[py].indexOf(target);resolved.y=py;}
   }
-  if(next.o==='U' && tileAt(next.x,next.y)==='S')next.bridge=!next.bridge;
-  if(next.o==='U' && 'AP'.includes(tileAt(next.x,next.y))){
-    const target=tileAt(next.x,next.y)==='A'?'P':'A';
-    const ty=level.grid.findIndex(row=>row.includes(target));
-    if(ty!==-1){next.x=level.grid[ty].indexOf(target);next.y=ty;}
-  }
-  if(!valid(next)){
-    locked=true;chime('fail');announce('Unsafe landing! Restarting…');render();
-    window.setTimeout(()=>{locked=false;restart(true);},prefersReducedMotion?100:390);
-    return;
-  }
-  history.push({...block});block=next;
-  chime('step');updateHud();render();
-  if(next.o==='U' && tileAt(next.x,next.y)==='G'){complete();return;}
-  if(next.o==='U' && tileAt(next.x,next.y)==='S')announce(next.bridge?'Bridge activated!':'Bridge deactivated.');
-  else if(next.o==='U' && 'AP'.includes(tileAt(next.x,next.y)))announce('Portal activated!');
-  else announce('Keep going — stand upright on the green core.');
+  if(!isValid(resolved))return null;
+  return {landed,resolved,effect:t==='A'||t==='P'?'portal':t==='S'?'switch':'roll'};
 }
+function shortestHint(from){
+  const queue=[{b:{...from},dir:null}],seen=new Set();
+  for(let i=0;i<queue.length;i++){
+    const {b,dir}=queue[i];const key=`${b.x}/${b.y}/${b.o}/${b.bridge}`;
+    if(seen.has(key))continue;seen.add(key);
+    if(b.o==='U'&&tileAt(b.x,b.y)==='G')return dir;
+    for(const direction of Object.keys(DIRS)){
+      const result=transition(b,direction);if(result)queue.push({b:result.resolved,dir:dir||direction});
+    }
+  }
+  return null;
+}
+function starsFor(m,h,f,par){return m<=par&&h===0&&f===0?3:m<=par+3&&h<=1&&f<=1?2:1;}
+function earnedStars(){return Object.values(settings.best).reduce((n,r)=>n+(typeof r==='object'?(r.stars||0):0),0);}
 function updateHud(){
-  $('levelText').textContent=String(levelNumber).padStart(2,'0')+' / 30';
+  $('levelText').textContent=`${String(levelNumber).padStart(2,'0')} / ${TOTAL}`;
   $('movesText').textContent=moves;
   $('parText').textContent=level.par;
-  $('bestText').textContent=Number.isFinite(settings.best[levelNumber])?settings.best[levelNumber]:'—';
-  $('boardLabel').textContent='CHAMBER '+String(levelNumber).padStart(2,'0');
-  $('undoBtn').disabled=locked||!history.length;
-  const label='Chamber '+levelNumber+'. '+level.grid.length+' by '+level.grid.length+' board. '+moves+' moves. Use directional controls to roll the prism.';
-  canvas.setAttribute('aria-label',label);
+  const best=settings.best[levelNumber];
+  $('bestText').textContent=best&&typeof best==='object'?best.moves:'—';
+  $('boardLabel').textContent=`CHAMBER ${String(levelNumber).padStart(2,'0')}`;
+  $('chapterText').textContent=CHAPTERS[level.chapter]||'THE GAUNTLET';
+  $('stageName').textContent=level.name;
+  $('starTotal').textContent=`${earnedStars()} / ${TOTAL*3} ★`;
+  $('undoBtn').disabled=locked||history.length===0;
+  $('hintBtn').disabled=locked;
+  canvas.setAttribute('aria-label',`${level.name}. Level ${levelNumber} of ${TOTAL}, ${level.grid.length} by ${level.grid.length}. ${moves} moves. Arrow keys or direction buttons to roll the block into the exit hole.`);
 }
-function restart(quiet=false){
-  block={x:level.start[0],y:level.start[1],o:'U',bridge:false};moves=0;history=[];locked=false;updateHud();render();if(!quiet)announce('Chamber restarted. You can do it!');
+function clearAnimation(){if(renderRequest)cancelAnimationFrame(renderRequest);renderRequest=0;animation=null;pendingDir=null;}
+function restart(quiet=false,preservePenalty=false){
+  const failureCount=falling;clearAnimation();locked=false;block={x:level.start[0],y:level.start[1],o:'U',bridge:false};
+  moves=0;history=[];falling=preservePenalty?failureCount:0;hintsUsed=0;startTime=performance.now();particles=[];updateHud();render();
+  if(!quiet)announce('Chamber restarted. Plan your next roll.');
 }
 function setLevel(number){
-  if(!Number.isInteger(number)||number<1||number>settings.unlocked)return;
+  if(!Number.isInteger(number)||number<1||number>settings.unlocked||number>TOTAL)return;
   levelNumber=number;level=LEVELS[number-1];settings.current=number;save();restart(true);
-  announce('Chamber '+number+'. Roll the prism to the green goal.');
+  announce(`CHAMBER ${number} — ${level.name}. Stand upright in the glowing exit.`);
 }
-function undo(){if(locked||!history.length||winDialog.open||levelsDialog.open||helpDialog.open)return;block=history.pop();moves=Math.max(0,moves-1);updateHud();render();announce('Last roll undone.');}
+function undo(){
+  if(locked||!history.length||winDialog.open||levelsDialog.open||helpDialog.open)return;
+  block=history.pop();moves=Math.max(0,moves-1);updateHud();render();announce('Last roll undone.');
+}
+function hint(){
+  if(locked||winDialog.open||levelsDialog.open||helpDialog.open)return;
+  const dir=shortestHint(block);hintsUsed++;
+  if(!dir){announce('No route from here. Undo a move or restart to escape.');sound('fail');return;}
+  const button=document.querySelector(`[data-dir="${dir}"]`);
+  if(button){button.classList.add('hint-glow');if(highlightTimeout)clearTimeout(highlightTimeout);highlightTimeout=setTimeout(()=>button.classList.remove('hint-glow'),1600);}
+  sound('hint');announce(`HINT · Try ${ICON[dir]} ${dir.toUpperCase()} next. You can still solve it!`);
+}
+function spawnBurst(col,count=30){
+  for(let i=0;i<count;i++){
+    const angle=Math.random()*Math.PI*2,vel=(.4+Math.random()*1.7);
+    particles.push({dx:Math.cos(angle)*vel,dy:Math.sin(angle)*vel,t:0,color:col,r:1.5+Math.random()*3});
+  }
+}
 function complete(){
-  const prior=settings.best[levelNumber];
-  if(!Number.isFinite(prior)||moves<prior)settings.best[levelNumber]=moves;
-  if(levelNumber<30)settings.unlocked=Math.max(settings.unlocked,levelNumber+1);
-  settings.current=Math.min(levelNumber+1,30);save();locked=true;chime('win');
-  $('winKicker').textContent=levelNumber===30?'All chambers conquered':'Chamber cleared';
-  $('winTitle').textContent=levelNumber===30?'OMEGA COMPLETE!':'LEVEL COMPLETE!';
-  $('winDetails').textContent=`${moves} moves · Target ${level.par} · ${moves<=level.par?'Target achieved!':'Chamber solved!'}`+(levelNumber===30?' You have completed all 30 puzzles.':' Next chamber unlocked.');
-  $('winNext').textContent=levelNumber===30?'Replay from level 1':'Next level →';
-  winDialog.showModal();announce('Chamber complete in '+moves+' moves!');
+  locked=true;
+  const stars=starsFor(moves,hintsUsed,falling,level.par),prior=settings.best[levelNumber];
+  if(!prior||typeof prior!=='object'||moves<prior.moves||stars>prior.stars){
+    settings.best[levelNumber]={moves:Math.min(moves,prior?.moves??Infinity),stars:Math.max(stars,prior?.stars??0)};
+  }
+  if(levelNumber<TOTAL)settings.unlocked=Math.max(settings.unlocked,levelNumber+1);
+  settings.current=Math.min(levelNumber+1,TOTAL);save();updateHud();sound('win');
+  $('winKicker').textContent=levelNumber===TOTAL?'ALL CHAMBERS CONQUERED':'CHAMBER CLEARED';
+  $('winTitle').textContent=levelNumber===TOTAL?'OMEGA COMPLETE!':'PERFECTLY BALANCED.';
+  $('winStars').textContent='★'.repeat(stars)+'☆'.repeat(3-stars);
+  $('winDetails').textContent=`${level.name} · ${moves} moves · ${level.par} target · ${stars} star${stars>1?'s':''}. ${levelNumber===TOTAL?'You conquered all 33 chambers!':'Next chamber unlocked.'}`;
+  $('winNext').textContent=levelNumber===TOTAL?'Replay the first chamber':'Next chamber →';
+  spawnBurst(PALETTES[settings.theme].goal,42);
+  winDialog.showModal();announce('Chamber conquered. '+stars+' stars earned!');render();
 }
-function levelPicker(){
+function attempt(dir){
+  if(locked){if(animation&&animation.kind==='roll')pendingDir=dir;return;}
+  if(winDialog.open||levelsDialog.open||helpDialog.open)return;
+  const [dx,dy]=DIRS[dir]||[];if(dx===undefined)return;
+  const prev={...block},raw=nextPosition(prev,dx,dy),move=transition(prev,dir);
+  if(!move){
+    locked=true;falling++;sound('fail');announce('VOID FALL! That roll had no support — resetting chamber.');
+    startAnimation({kind:'fall',prev,raw,dx,dy,begin:performance.now(),duration:reduced?180:610,onEnd:()=>{restart(true,true);announce('Try a different route. A single unsupported tile means a fall.');}});
+    return;
+  }
+  history.push({...block});moves++;block={...move.resolved};locked=true;
+  updateHud();sound(move.effect==='roll'?'move':move.effect); 
+  const won=block.o==='U'&&tileAt(block.x,block.y)==='G';
+  startAnimation({kind:'roll',prev,raw:move.landed,dx,dy,begin:performance.now(),duration:reduced?1:255,onEnd:()=>{
+    locked=false;
+    if(move.effect==='portal'){spawnBurst(PALETTES[settings.theme].portal,18);announce('TELEPORT! New position — keep your bearings.');}
+    else if(move.effect==='switch')announce(block.bridge?'POWER ON · Bridge activated.':'POWER OFF · Bridge retracted.');
+    else announce(won?'CORE ALIGNED · Descending into the exit…':`${level.name} · ${moves} roll${moves===1?'':'s'}.`);
+    if(won){
+      locked=true;startAnimation({kind:'win',prev:{...block},raw:{...block},dx:0,dy:0,begin:performance.now(),duration:reduced?1:470,onEnd:complete});
+    }else if(pendingDir){const next=pendingDir;pendingDir=null;attempt(next);}
+  }});
+}
+function startAnimation(a){animation=a;if(renderRequest)cancelAnimationFrame(renderRequest);renderRequest=requestAnimationFrame(frame);}
+function frame(now){
+  renderRequest=0;const a=animation;if(!a)return;
+  const t=Math.min(1,(now-a.begin)/Math.max(1,a.duration));render(t);
+  if(t<1){renderRequest=requestAnimationFrame(frame);}else{animation=null;a.onEnd();render();}
+}
+function openLevels(){
   const grid=$('levelGrid');grid.replaceChildren();
-  for(let i=1;i<=30;i++){
-    const b=document.createElement('button');b.textContent=String(i).padStart(2,'0');b.type='button';
-    b.disabled=i>settings.unlocked;
-    if(Number.isFinite(settings.best[i]))b.classList.add('done');
+  for(let i=1;i<=TOTAL;i++){
+    const b=document.createElement('button');b.type='button';b.disabled=i>settings.unlocked;
+    const best=settings.best[i];const s=best?.stars||0;
+    b.innerHTML=`<strong>${String(i).padStart(2,'0')}</strong><small>${s?'★'.repeat(s):i>settings.unlocked?'🔒': '·'}</small>`;
+    if(s)b.classList.add('done');
     if(i===levelNumber)b.setAttribute('aria-current','true');
-    b.setAttribute('aria-label',`Level ${i}${b.disabled?', locked':Number.isFinite(settings.best[i])?', best '+settings.best[i]+' moves':''}`);
+    b.setAttribute('aria-label',`Chamber ${i}: ${LEVELS[i-1].name}, ${b.disabled?'locked':s+' stars'}`);
     b.addEventListener('click',()=>{levelsDialog.close();setLevel(i);});grid.appendChild(b);
   }
   levelsDialog.showModal();
 }
-function openHelp(){helpDialog.showModal();}
-$('helpBtn').addEventListener('click',openHelp);$('howBtn').addEventListener('click',openHelp);
-$('closeHelp').addEventListener('click',()=>helpDialog.close());
-$('undoBtn').addEventListener('click',undo);$('restartBtn').addEventListener('click',()=>{if(!locked)restart()});
-$('levelsBtn').addEventListener('click',levelPicker);$('closeLevels').addEventListener('click',()=>levelsDialog.close());
-$('winReplay').addEventListener('click',()=>{winDialog.close();restart();});
-$('winNext').addEventListener('click',()=>{winDialog.close();setLevel(levelNumber===30?1:levelNumber+1);});
-$('soundBtn').addEventListener('click',()=>{settings.sound=!settings.sound;save();showSound();if(settings.sound)chime('step');});
 function showSound(){$('soundBtn').textContent=settings.sound?'♫ Sound on':'♫ Sound off';$('soundBtn').setAttribute('aria-pressed',String(settings.sound));}
-for(const btn of document.querySelectorAll('[data-dir]'))btn.addEventListener('click',()=>attempt(btn.dataset.dir));
+function setTheme(name){if(!PALETTES[name])return;settings.theme=name;save();document.documentElement.dataset.theme=name;$('themeBtn').textContent=`◈ ${name==='aurora'?'Aurora':name==='voltage'?'Voltage':'Candy'}`;render();}
+$('helpBtn').addEventListener('click',()=>helpDialog.showModal());
+$('howBtn').addEventListener('click',()=>helpDialog.showModal());
+$('closeHelp').addEventListener('click',()=>helpDialog.close());
+$('undoBtn').addEventListener('click',undo);
+$('restartBtn').addEventListener('click',()=>{if(!locked)restart();});
+$('hintBtn').addEventListener('click',hint);
+$('levelsBtn').addEventListener('click',openLevels);
+$('closeLevels').addEventListener('click',()=>levelsDialog.close());
+$('winReplay').addEventListener('click',()=>{winDialog.close();restart();});
+$('winNext').addEventListener('click',()=>{winDialog.close();setLevel(levelNumber===TOTAL?1:levelNumber+1);});
+$('soundBtn').addEventListener('click',()=>{settings.sound=!settings.sound;save();showSound();if(settings.sound)sound('move');});
+$('themeBtn').addEventListener('click',()=>{const keys=['aurora','voltage','candy'];setTheme(keys[(keys.indexOf(settings.theme)+1)%keys.length]);});
+for(const button of document.querySelectorAll('[data-dir]'))button.addEventListener('click',()=>attempt(button.dataset.dir));
 document.addEventListener('keydown',event=>{
   if(event.altKey||event.ctrlKey||event.metaKey||event.repeat||event.target.matches('input,textarea,[contenteditable]'))return;
   if(winDialog.open||levelsDialog.open||helpDialog.open)return;
-  const key=event.key.toLowerCase();
-  const dirs={arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'};
+  const key=event.key.toLowerCase(),dirs={arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'};
   if(dirs[key]){event.preventDefault();attempt(dirs[key]);}
   else if(key==='z'){event.preventDefault();undo();}
   else if(key==='r'){event.preventDefault();if(!locked)restart();}
+  else if(key==='h'){event.preventDefault();hint();}
 });
-let initialPointer=null;
-canvas.addEventListener('pointerdown',event=>{if(event.pointerType==='mouse')return;initialPointer={x:event.clientX,y:event.clientY,id:event.pointerId};});
-canvas.addEventListener('pointerup',event=>{
-  if(!initialPointer||event.pointerId!==initialPointer.id)return;
-  const dx=event.clientX-initialPointer.x,dy=event.clientY-initialPointer.y;initialPointer=null;
+let swipeStart=null;
+canvas.addEventListener('pointerdown',e=>{swipeStart={x:e.clientX,y:e.clientY,id:e.pointerId};});
+canvas.addEventListener('pointerup',e=>{
+  if(!swipeStart||e.pointerId!==swipeStart.id)return;
+  const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;
   if(Math.max(Math.abs(dx),Math.abs(dy))<Math.max(22,canvas.clientWidth*.055))return;
   attempt(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');
 });
-canvas.addEventListener('pointercancel',()=>initialPointer=null);
-function rect(x,y,w,h,r,fill){ctx.fillStyle=fill;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
-function render(now=0){
-  if(!ctx)return;
-  const cssWidth=canvas.clientWidth||boardWidth,side=cssWidth;
-  const dpr=Math.min(window.devicePixelRatio||1,2);
-  const px=Math.max(1,Math.round(side*dpr));
-  if(canvas.width!==px||canvas.height!==px){canvas.width=px;canvas.height=px;}
-  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,side,side);
-  const grad=ctx.createRadialGradient(side/2,side*.35,0,side/2,side/2,side*.75);
-  grad.addColorStop(0,'#13274a');grad.addColorStop(1,'#061021');ctx.fillStyle=grad;ctx.fillRect(0,0,side,side);
-  for(let i=0;i<52;i++){
-    const x=((i*127.3+73)%997)/997*side,y=((i*231.8+37)%991)/991*side;
-    ctx.fillStyle=`rgba(143,215,255,${.09+(i%5)*.024})`;ctx.fillRect(x,y,1.1,1.1);
-  }
-  const n=level.grid.length,pad=side*.072,cell=(side-pad*2)/n,gap=Math.max(2.5,cell*.085),inset=gap*.5;
-  rect(pad-8,pad-8,cell*n+16,cell*n+16,16,'rgba(7,17,33,.51)');
-  ctx.strokeStyle='rgba(111,168,228,.09)';ctx.strokeRect(pad-1,pad-1,cell*n+2,cell*n+2);
-  for(let y=0;y<n;y++)for(let x=0;x<n;x++){
-    const t=tileAt(x,y);if(t==='.')continue;
-    const xx=pad+x*cell+inset,yy=pad+y*cell+inset,wh=cell-gap;
-    let base='#153b5e',border='#3872a3';
-    if(t==='G'){base='#125c4d';border='#82ffc0';}
-    if(t==='F'){base='#62314a';border='#f28ea8';}
-    if(t==='S'){base='#76512f';border='#fbc078';}
-    if(t==='B'){base=block.bridge?'#4f427a':'#202c43';border=block.bridge?'#b5a8ff':'#4c5573';}
-    if(t==='A'||t==='P'){base='#593869';border='#efa4ff';}
-    if(t==='X'){base='#452b36';border='#f16d82';}
-    ctx.shadowColor=border;ctx.shadowBlur=t==='G'?12:4;
-    rect(xx,yy,wh,wh,Math.max(4,cell*.12),base);ctx.shadowBlur=0;
-    ctx.strokeStyle=border;ctx.lineWidth=Math.max(1,cell*.026);ctx.beginPath();ctx.roundRect(xx+.8,yy+.8,wh-1.6,wh-1.6,Math.max(4,cell*.12));ctx.stroke();
-    rect(xx+5,yy+4,Math.max(2,wh-10),Math.max(2,cell*.045),2,'rgba(255,255,255,.14)');
-    if(t==='G'){
-      ctx.strokeStyle='#8effc1';ctx.lineWidth=Math.max(2,cell*.04);ctx.beginPath();ctx.arc(xx+wh/2,yy+wh/2,wh*.19,0,Math.PI*2);ctx.stroke();
-      ctx.fillStyle='#aaffd7';ctx.beginPath();ctx.arc(xx+wh/2,yy+wh/2,Math.max(2,wh*.052),0,Math.PI*2);ctx.fill();
-    }else if(t==='S'||t==='B'||t==='F'||t==='A'||t==='P'){
-      ctx.font=`700 ${Math.round(cell*.38)}px system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';
-      ctx.fillStyle=t==='S'?'#ffdc98':t==='B'?'#c2b5ff':t==='F'?'#ffc4d4':'#ffc5ff';
-      ctx.fillText(t==='S'?'⚡':t==='B'?'⬡':t==='F'?'╳':'⇄',xx+wh/2,yy+wh/2+1);
-    }
-  }
-  if(block){
-    const x=pad+block.x*cell+inset+cell*.07,y=pad+block.y*cell+inset+cell*.07;
-    const ww=(block.o==='H'?2:1)*cell-gap-cell*.14,hh=(block.o==='V'?2:1)*cell-gap-cell*.14;
-    ctx.shadowColor='#39f7ff';ctx.shadowBlur=Math.max(10,cell*.36);
-    const shine=ctx.createLinearGradient(x,y,x+ww,y+hh);shine.addColorStop(0,'#b9ffff');shine.addColorStop(.45,'#42c7e8');shine.addColorStop(1,'#0d5896');
-    rect(x,y,ww,hh,Math.max(5,cell*.13),shine);ctx.shadowBlur=0;
-    ctx.strokeStyle='#dcffff';ctx.lineWidth=Math.max(1.6,cell*.035);ctx.beginPath();ctx.roundRect(x+1,y+1,ww-2,hh-2,Math.max(5,cell*.13));ctx.stroke();
-    ctx.strokeStyle='rgba(6,55,96,.5)';ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(x+ww*.26,y+hh*.28);ctx.lineTo(x+ww*.74,y+hh*.28);ctx.lineTo(x+ww*.78,y+hh*.72);ctx.lineTo(x+ww*.22,y+hh*.72);ctx.closePath();ctx.stroke();
-    if(block.o==='U'){
-      ctx.fillStyle='#f4ffff';ctx.beginPath();ctx.arc(x+ww/2,y+hh/2,Math.max(2,ww*.065),0,Math.PI*2);ctx.fill();
-    }
+canvas.addEventListener('pointercancel',()=>swipeStart=null);
+
+/* Isometric-light orthographic world rendering: 3D tile extrusions and an
+   actual solid rotating 1x1x2 cuboid, rather than a stretched rectangle. */
+let cw=500,cs=50,originX=0,originY=0;
+function project(x,y,z=0){return [originX+cs*(x+.155*y),originY+cs*(.135*x+.865*y-.88*z)];}
+function polygon(coords,fill,stroke,width=1){
+  ctx.beginPath();coords.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fillStyle=fill;ctx.fill();
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
+}
+function pathPoly(pts){return pts.map(p=>project(...p));}
+function tileColor(t,p){if(t==='G')return p.goal;if(t==='F')return p.fragile;if(t==='S')return p.switch;if(t==='B')return block.bridge?p.bridge:'#303c57';if(t==='A'||t==='P')return p.portal;return p.tile;}
+function drawTile(x,y,t,p,now){
+  const inset=.047,x0=x+inset,y0=y+inset,x1=x+1-inset,y1=y+1-inset;
+  const top=[project(x0,y0,0),project(x1,y0,0),project(x1,y1,0),project(x0,y1,0)];
+  const front=[top[3],top[2],project(x1,y1,-.22),project(x0,y1,-.22)];
+  const right=[top[1],top[2],project(x1,y1,-.22),project(x1,y0,-.22)];
+  const base=tileColor(t,p);
+  ctx.shadowColor=base;ctx.shadowBlur=(t==='G'||t==='A'||t==='P'||(t==='B'&&block.bridge))?cs*.17:0;
+  polygon(front,p.tileFront,'rgba(0,0,0,.25)',.5);
+  polygon(right,p.tileEdge,'rgba(0,0,0,.25)',.5);
+  ctx.shadowBlur=0;
+  const grd=ctx.createLinearGradient(top[0][0],top[0][1],top[2][0],top[2][1]);
+  grd.addColorStop(0,t==='#'?p.tileHi:base);grd.addColorStop(.24,base);grd.addColorStop(1,t==='#'?p.tile:p.tileEdge);
+  polygon(top,grd,t==='#'?p.tileHi:base,Math.max(1,cs*.022));
+  polygon([project(x+.125,y+.12,.008),project(x+.81,y+.12,.008),project(x+.81,y+.17,.008),project(x+.125,y+.17,.008)],'rgba(255,255,255,.115)');
+  const [midX,midY]=project(x+.5,y+.5,.012),r=cs*.22;
+  if(t==='G'){
+    // The objective is a hole, not a solid landing tile.
+    polygon([project(x+.23,y+.23,.016),project(x+.77,y+.23,.016),project(x+.77,y+.77,.016),project(x+.23,y+.77,.016)],'#01121a',p.goal,Math.max(2,cs*.055));
+    ctx.strokeStyle=p.goal;ctx.lineWidth=Math.max(1.7,cs*.04);ctx.shadowColor=p.goal;ctx.shadowBlur=cs*.2;
+    ctx.beginPath();ctx.ellipse(midX,midY,cs*.18,cs*.13,0,0,Math.PI*2);ctx.stroke();ctx.shadowBlur=0;
+    ctx.fillStyle='#b4ffe1';ctx.font=`900 ${cs*.19}px system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('↓',midX,midY);
+  }else if(t==='F'){
+    ctx.strokeStyle='#ffd6df';ctx.lineWidth=Math.max(1.25,cs*.025);ctx.beginPath();ctx.moveTo(...project(x+.13,y+.37,.017));ctx.lineTo(...project(x+.52,y+.42,.017));ctx.lineTo(...project(x+.42,y+.75,.017));ctx.lineTo(...project(x+.83,y+.64,.017));ctx.stroke();
+    ctx.beginPath();ctx.moveTo(...project(x+.5,y+.42,.017));ctx.lineTo(...project(x+.68,y+.21,.017));ctx.stroke();
+  }else if(t==='S'||t==='B'||t==='A'||t==='P'){
+    const sym=t==='S'?'⚡':t==='B'?block.bridge?'◆':'◇':'◎';
+    ctx.fillStyle=t==='B'&&!block.bridge?'#b3b9ca':'#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`900 ${cs*.43}px system-ui`;ctx.shadowColor=base;ctx.shadowBlur=cs*.12;
+    ctx.fillText(sym,midX,midY);ctx.shadowBlur=0;
+    if(t==='B'&&!block.bridge){ctx.strokeStyle='#8996aa';ctx.setLineDash([3,4]);polygon(top,'rgba(10,13,27,.54)','#7282a8',1);ctx.setLineDash([]);}
   }
 }
-if('ResizeObserver' in window){const resizeObserver=new ResizeObserver(()=>render());resizeObserver.observe(canvas);}else{window.addEventListener('resize',()=>render());}
-$('year').textContent=new Date().getFullYear();showSound();setLevel(levelNumber);
-// No constant animation loop: keep CPU use and battery drain low on mobile devices.
+function blockCorners(b){
+  const w=b.o==='H'?2:1,d=b.o==='V'?2:1,h=b.o==='U'?2:1;
+  const x=b.x,y=b.y;
+  return [[x,y,0],[x+w,y,0],[x+w,y+d,0],[x,y+d,0],[x,y,h],[x+w,y,h],[x+w,y+d,h],[x,y+d,h]];
+}
+function rotatedVertices(a,t){
+  let verts=blockCorners(a.prev),{dx,dy,prev}=a;
+  const alpha=(Math.PI/2)*t,c=Math.cos(alpha),s=Math.sin(alpha);
+  if(a.kind==='win')return verts.map(([x,y,z])=>[x,y,z-2.3*(t*t)]);
+  // For invalid moves, the prism first tips over the ledge, then falls.
+  const distance=a.kind==='fall'?Math.min(1,t/.52):t;
+  const ca=Math.cos(distance*Math.PI/2),sa=Math.sin(distance*Math.PI/2);
+  const w=prev.o==='H'?2:1,h=prev.o==='V'?2:1;
+  const px=dx>0?prev.x+w:prev.x;
+  const py=dy>0?prev.y+h:prev.y;
+  return verts.map(([x,y,z])=>{
+    if(dx){const sign=Math.sign(dx),ox=x-px;x=px+ox*ca+sign*z*sa;z=-sign*ox*sa+z*ca;}
+    else if(dy){const sign=Math.sign(dy),oy=y-py;y=py+oy*ca+sign*z*sa;z=-sign*oy*sa+z*ca;}
+    if(a.kind==='fall')z-=Math.max(0,(t-.45)*4)**2*2;
+    return [x,y,z];
+  });
+}
+const FACE_DEFS=[
+  {idx:[0,3,2,1],tone:'bottom'}, {idx:[4,5,6,7],tone:'top'},
+  {idx:[0,1,5,4],tone:'back'}, {idx:[1,2,6,5],tone:'right'},
+  {idx:[2,3,7,6],tone:'front'}, {idx:[3,0,4,7],tone:'left'}
+];
+function normal(A,B,C){const u=B.map((v,i)=>v-A[i]),v=C.map((w,i)=>w-A[i]);return [u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];}
+function drawBlock(verts,p){
+  if(!verts)return;
+  ctx.lineJoin='round';
+  const faces=FACE_DEFS.map(f=>{
+    const points=f.idx.map(i=>verts[i]),n=normal(...points.slice(0,3));
+    const avg=points.reduce((s,q)=>s+q[0]*.25+q[1]*.42+q[2],0)/4;
+    return {...f,points,n,avg};
+  }).filter(f=>f.n[0]*.26+f.n[1]*.56+f.n[2]*.91>0.05).sort((a,b)=>a.avg-b.avg);
+  const paints={top:p.blockTop,front:p.blockFront,right:p.blockRight,back:p.blockRight,left:p.blockFront,bottom:p.tileEdge};
+  ctx.shadowColor=p.glow;ctx.shadowBlur=cs*.31;
+  for(const face of faces){
+    const pts=face.points.map(v=>project(...v));
+    const grad=ctx.createLinearGradient(pts[0][0],pts[0][1],pts[2][0],pts[2][1]);
+    const c=paints[face.tone];grad.addColorStop(0,face.tone==='top'?p.blockTop:c);grad.addColorStop(1,c);
+    polygon(pts,grad,p.blockEdge,Math.max(1.1,cs*.027));ctx.shadowBlur=0;
+    const x1=pts[0],x2=pts[2];ctx.strokeStyle='rgba(255,255,255,.22)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x1[0]*.84+x2[0]*.16,x1[1]*.84+x2[1]*.16);ctx.lineTo(x1[0]*.67+x2[0]*.33,x1[1]*.67+x2[1]*.33);ctx.stroke();
+  }
+  // The luminous emblem stays on whichever face is upright.
+  const top=verts.slice(4).map(v=>project(...v));
+  ctx.fillStyle='#16395d';ctx.beginPath();
+  const cx=top.reduce((sum,p)=>sum+p[0],0)/4,cy=top.reduce((sum,p)=>sum+p[1],0)/4;
+  ctx.arc(cx,cy,Math.max(1.5,cs*.054),0,2*Math.PI);ctx.fill();
+}
+function render(t=0){
+  const side=canvas.clientWidth||520;
+  if(!side)return;
+  cw=side;const dpr=Math.min(2,window.devicePixelRatio||1),pixel=Math.round(side*dpr);
+  if(canvas.width!==pixel||canvas.height!==pixel){canvas.width=pixel;canvas.height=pixel;}
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const p=PALETTES[settings.theme];ctx.clearRect(0,0,side,side);
+  const bg=ctx.createRadialGradient(side*.45,side*.38,0,side*.45,side*.38,side*.73);
+  bg.addColorStop(0,'#1b3265');bg.addColorStop(.58,p.bg);bg.addColorStop(1,p.void);ctx.fillStyle=bg;ctx.fillRect(0,0,side,side);
+  // Sparse non-animated star field.
+  for(let i=0;i<85;i++){const x=((i*127.35+63)%971)/971*side,y=((i*276.63+81)%983)/983*side;ctx.fillStyle=`rgba(175,210,255,${.08+(i%4)*.03})`;ctx.fillRect(x,y,Math.max(.7,side*.0015),Math.max(.7,side*.0015));}
+  const n=level.grid.length;cs=side*.72/(n*1.155);
+  originX=(side-cs*n*1.155)/2;
+  originY=(side-cs*n*1.0)/2+cs*.55;
+  // Deep board backdrop and drifting void vignette.
+  polygon(pathPoly([[ -.20,-.15,-.5],[n+.2,-.15,-.5],[n+.2,n+.15,-.5],[-.2,n+.15,-.5]]),'rgba(4,12,34,.75)','rgba(129,166,255,.06)',1);
+  for(let yy=0;yy<n;yy++)for(let xx=0;xx<n;xx++){const tile=tileAt(xx,yy);if(tile!=='.')drawTile(xx,yy,tile,p,performance.now());}
+  const verts=animation?rotatedVertices(animation,t):blockCorners(block);
+  const shadow=animation&&animation.kind==='fall'?Math.max(0,1-t*1.8):1;
+  if(shadow>.03){
+    const points=verts.slice(0,4).map(([x,y])=>project(x,y,-.23));
+    ctx.globalAlpha=shadow*.45;polygon(points,'#020614');ctx.globalAlpha=1;
+  }
+  drawBlock(verts,p);
+  if(particles.length){
+    // Runs only during win effect or next interaction; no background animation loop.
+    const mx=side*.5,my=side*.48;
+    for(const particle of particles){ctx.globalAlpha=Math.max(0,1-particle.t);ctx.fillStyle=particle.color;ctx.beginPath();ctx.arc(mx+particle.dx*particle.t*70,my+particle.dy*particle.t*70,particle.r,0,Math.PI*2);ctx.fill();}
+    ctx.globalAlpha=1;
+  }
+}
+const oldComplete=complete;
+// Keep decorative particles bounded and off the idle render loop.
+function animateConfetti(){if(reduced)return;let begin=performance.now();function tick(now){const progress=Math.min(1,(now-begin)/650);for(const p of particles)p.t=progress;render();if(progress<1)requestAnimationFrame(tick);else{particles=[];render();}}requestAnimationFrame(tick);}
+const originalSpawn=spawnBurst;spawnBurst=function(c,n){originalSpawn(c,n);animateConfetti();};
+if('ResizeObserver' in window){const ro=new ResizeObserver(()=>render());ro.observe(canvas);}else window.addEventListener('resize',()=>render());
+$('year').textContent=new Date().getFullYear();showSound();setLevel(levelNumber);setTheme(settings.theme);
+
 </script>
 </body>
 </html>

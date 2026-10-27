@@ -1,47 +1,55 @@
-# Neon Block Flip ∞ OMEGA
+# Neon Block Flip ∞ OMEGA — 3D Edition
 
-A free, self-contained rolling-block puzzle game by Cornelius Aurelius. Built with HTML, CSS and JavaScript; no build tools, network dependencies, accounts or advertising required.
+An original single-page 3D-style rolling-block puzzle game by Cornelius Aurelius, inspired by the **mechanics** of classic 2×1 block-rolling puzzles. The stage layouts, art, code, names and presentation are original.
 
-## Play
+**Play:** https://cornelius-aurelius.github.io/neon-block-flip/
 
-Open `index.html` in a modern browser or publish the repository using GitHub Pages.
+## Goal and movement
 
-**Goal:** Roll the cyan prism onto the green goal tile in an upright position.
+Tip a 1 × 1 × 2 metal prism across floating platforms and make it stand **upright over the illuminated single-square exit hole**. Every move uses physically correct 90° tipping geometry:
 
-- Keyboard: arrow keys or WASD.
-- Phone/tablet: swipe on the game board or use the on-screen direction pad.
-- Undo: `Z` or Undo button. Restart: `R` or Restart button.
-- **Fragile tile:** holds a lying prism but breaks under an upright prism.
-- **Switch:** standing upright toggles the bridge tiles.
-- **Bridge:** solid only while activated.
-- **Portal:** standing upright on one teleports the prism to its pair.
-- The void causes a fall and restarts the chamber.
+- Upright block at `(x, y)` tipped right occupies `(x+1, y)` and `(x+2, y)`.
+- Upright block tipped left occupies `(x-2, y)` and `(x-1, y)`.
+- A lying block tips onto its end when rolled along its long axis; it rolls sideways without changing orientation along its short axis.
+- If either occupied square is void or an inactive bridge, the block falls and the stage restarts.
+- Fragile tiles support a lying block, **not an upright block**.
+- Standing on an amber switch changes bridge state. Standing on a portal teleports the block to its paired portal.
+- To finish, the prism must be upright in the exit; merely passing over the hole does not complete the level.
 
-## What's included
+## Controls
 
-- Thirty unique puzzles (5×5 to 8×8). Every board has been checked with a shortest-path solver, including bridge, fragile and portal rules.
-- Move target, best score, level unlocks, level selection and local on-device progress.
-- Keyboard, touch direction pad and swipe controls.
-- Optional generated sound. Sound is muted by default.
-- Responsive high-DPI canvas, reduced-motion support, accessible labels and a help guide.
-- No third-party trackers, packages, CDNs, or external images.
+- Arrow keys / WASD: roll prism
+- Swipe on game board: roll prism
+- On-screen arrow pad: touch or mouse input. On phones, a compact pad sits directly underneath the board.
+- **Z:** undo last valid move
+- **R:** restart level
+- **H:** one-step hint from your **current** position
+- Theme button: cycle Aurora / Voltage / Candy colour schemes. All special tiles have distinct glyphs as well as colour.
+- Sound button: optional synthesised audio; muted by default.
 
-## Development and testing
+## Progression and fairness
 
-The runtime is intentionally kept in one `index.html` file for simple static hosting.
+- **33 unique**, deterministically generated, static level layouts across 6 chapters.
+- All 33 levels are validated via an **independent shortest-path breadth-first-search solver**.
+- Switch stages require their bridge to finish; portal stages require teleportation.
+- 1–3 star mastery for each stage, based on moves, hints and falls. 99 stars can be collected.
+- Scores and unlocked levels are saved locally in your browser. The old version’s level unlocks are retained where available, but scores from the old **incorrect physics engine** are not migrated.
+- No account, adverts, analytics, cookies, asset downloads, JavaScript dependencies or external network calls are required to run the game.
 
-To verify the 30 puzzles, use Node 18+:
+## Test locally
 
-```sh
+Open `index.html` in a browser, or serve the folder using any static-file server. In Node.js ≥ 18:
+
+```bash
 node --test tests/levels.test.js
 ```
 
-To test the interface, open the game on mobile and desktop; verify directional buttons, keyboard, swipe, undo, reset, win/next level, help and level selection. The browser's localStorage may be cleared to start from level 1.
+Tests verify: 33 distinct valid maps, legal stored solutions, shortest paths using an independent physics implementation, mechanics essential for switch and portal puzzles, proper rolling geometry, and standalone GitHub Pages suitability. Browser tests were additionally performed at narrow-phone, mobile, tablet and desktop sizes, including a full 33-stage real-engine playthrough.
 
-## Publishing
+## Deployment
 
-In your GitHub repository, choose **Settings → Pages**, then deploy from the `main` branch's root after merging the upgrade pull request. Confirm the exact published URL and test the hosted site before adding it to your [Cornelius Aurelius portfolio](https://corneliusaurelius.com/).
+GitHub Pages: Settings → Pages → `Deploy from a branch` → `main` / `(root)`. GitHub Pages serves the `index.html` directly. No build step or custom GitHub Action is needed.
 
-## Creator
+## Content ownership
 
-© Cornelius Aurelius. [corneliusaurelius.com](https://corneliusaurelius.com/)
+© Cornelius Aurelius. Game title, artwork, code and level layouts are original. The game is not affiliated with the Bloxorz franchise.

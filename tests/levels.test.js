@@ -1,56 +1,103 @@
-const test = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const path = require('node:path');
-const html = fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
-const match = html.match(/const LEVELS = (\[[\s\S]*?\]);/);
-assert.ok(match,'The page should embed the level definitions');
-const levels = JSON.parse(match[1]);
-const moves = [[1,0],[-1,0],[0,1],[0,-1]];
-function cells(x,y,o){return o==='H'?[[x,y],[x+1,y]]:o==='V'?[[x,y],[x,y+1]]:[[x,y]];}
-function move(b,dx,dy){
-  const {x,y,o,bridge}=b;
-  if(o==='U')return dx===1?{x,y,o:'H',bridge}:dx===-1?{x:x-1,y,o:'H',bridge}:dy===1?{x,y,o:'V',bridge}:{x,y:y-1,o:'V',bridge};
-  if(o==='H')return dx===1?{x:x+2,y,o:'U',bridge}:dx===-1?{x:x-1,y,o:'U',bridge}:{x,y:y+dy,o:'H',bridge};
-  return dy===1?{x,y:y+2,o:'U',bridge}:dy===-1?{x,y:y-1,o:'U',bridge}:{x:x+dx,y,o:'V',bridge};
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const match=html.match(/const LEVELS = (\[[\s\S]*?\]);/);
+assert.ok(match,'HTML embeds static LEVELS array');
+const levels=JSON.parse(match[1]);
+const dirs=[['U',0,-1],['D',0,1],['L',-1,0],['R',1,0]];
+function cells(b){const arr=[[b.x,b.y]];if(b.o==='H')arr.push([b.x+1,b.y]);if(b.o==='V')arr.push([b.x,b.y+1]);return arr;}
+function roll(b,dx,dy){
+ const {x,y,o,bridge}=b;
+ if(o==='U'){
+  if(dx===1)return {x:x+1,y,o:'H',bridge};if(dx===-1)return {x:x-2,y,o:'H',bridge};
+  if(dy===1)return {x,y:y+1,o:'V',bridge};return {x,y:y-2,o:'V',bridge};
+ }
+ if(o==='H'){
+  if(dx===1)return {x:x+2,y,o:'U',bridge};if(dx===-1)return {x:x-1,y,o:'U',bridge};
+  return {x,y:y+dy,o:'H',bridge};
+ }
+ if(dy===1)return {x,y:y+2,o:'U',bridge};if(dy===-1)return {x,y:y-1,o:'U',bridge};
+ return {x:x+dx,y,o:'V',bridge};
 }
-function shortest(level){
-  const grid=level.grid,tile=(x,y)=>grid[y]?.[x]??'.';
-  const valid=(b)=>cells(b.x,b.y,b.o).every(([x,y])=>{const t=tile(x,y);return t!=='.'&&t!=='X'&&(t!=='B'||b.bridge)&&(t!=='F'||b.o!=='U');});
-  const q=[[{x:level.start[0],y:level.start[1],o:'U',bridge:false},0]],seen=new Set();
-  for(let i=0;i<q.length;i++){
-    const [b,steps]=q[i],key=[b.x,b.y,b.o,b.bridge].join(':');
-    if(seen.has(key))continue;seen.add(key);
-    if(b.o==='U'&&tile(b.x,b.y)==='G')return steps;
-    for(const [dx,dy] of moves){
-      const n=move(b,dx,dy);if(!valid(n))continue;
-      if(n.o==='U'&&tile(n.x,n.y)==='S')n.bridge=!n.bridge;
-      if(n.o==='U' && (tile(n.x,n.y)==='A'||tile(n.x,n.y)==='P')){
-        const target=tile(n.x,n.y)==='A'?'P':'A';const py=grid.findIndex(r=>r.includes(target));
-        if(py!==-1){n.x=grid[py].indexOf(target);n.y=py;}
-      }
-      if(valid(n))q.push([n,steps+1]);
-    }
-  }
-  return null;
+function simulate(level,from,d,{disableBridge=false,disablePortals=false}={}){
+ const grid=level.grid,tile=(x,y)=>grid[y]?.[x]??'.';
+ const valid=b=>cells(b).every(([x,y])=>{const t=tile(x,y);return t!=='.'&&t!=='X'&&(t!=='B'||(b.bridge&&!disableBridge))&&(t!=='F'||b.o!=='U');});
+ const next=roll(from,d[1],d[2]);if(!valid(next))return null;
+ const t=next.o==='U'?tile(next.x,next.y):'';
+ if(t==='S')next.bridge=!next.bridge;
+ if((t==='A'||t==='P')&&!disablePortals){
+  const target=t==='A'?'P':'A',yy=grid.findIndex(row=>row.includes(target));
+  if(yy>=0){next.x=grid[yy].indexOf(target);next.y=yy;}
+ }
+ if(!valid(next))return null;
+ return next;
 }
-test('Thirty distinct valid solvable puzzles',()=>{
-  assert.equal(levels.length,30);
-  assert.equal(new Set(levels.map(l=>l.grid.join('/'))).size,30);
-  for(const [index,level] of levels.entries()){
-    assert.ok(level.grid.every(r=>r.length===level.grid.length),`Level ${index+1} is square`);
-    assert.ok(level.grid.join('').includes('G'),`Level ${index+1} has a goal`);
-    const distance=shortest(level);
-    assert.ok(distance!==null,`Level ${index+1} is solvable`);
-    assert.equal(distance,level.minMoves,`Level ${index+1} minimum moves correct`);
-    assert.ok(level.par>=distance,`Level ${index+1} target achievable`);
+function shortest(level,opts={}){
+ const start={x:level.start[0],y:level.start[1],o:'U',bridge:false};
+ const queue=[[start,0]],seen=new Set();
+ for(let i=0;i<queue.length;i++){
+  const [b,steps]=queue[i],key=`${b.x},${b.y},${b.o},${b.bridge}`;
+  if(seen.has(key))continue;seen.add(key);
+  if(b.o==='U'&&level.grid[b.y][b.x]==='G')return steps;
+  for(const d of dirs){const n=simulate(level,b,d,opts);if(n)queue.push([n,steps+1]);}
+ }
+ return null;
+}
+test('33 distinct layouts, each with valid geometry, safe starting block, and exactly one exit',()=>{
+ assert.equal(levels.length,33);
+ assert.equal(new Set(levels.map(l=>l.grid.join('/')+':'+l.start.join(','))).size,33);
+ for(const [idx,l] of levels.entries()){
+  const n=l.grid.length;assert.ok(n>=5&&n<=9,`${idx+1}: board dimensions`);
+  assert.ok(l.grid.every(row=>row.length===n),`${idx+1}: square grid`);
+  assert.equal(l.grid.join('').split('G').length-1,1,`${idx+1}: one exit`);
+  assert.equal(l.grid[l.start[1]][l.start[0]],'#',`${idx+1}: safe starting tile`);
+  assert.ok(Number.isInteger(l.par)&&l.par>=l.minMoves,`${idx+1}: par`);
+  assert.ok(l.minMoves>=3,`${idx+1}: sufficiently long`);
+ }
+});
+test('Every level has an exact legal solution and independent BFS confirms the shortest path',()=>{
+ for(const [idx,l] of levels.entries()){
+  assert.equal(l.solution.length,l.minMoves,`${idx+1}: embedded solution length`);
+  let b={x:l.start[0],y:l.start[1],o:'U',bridge:false};
+  for(const [step,ch] of [...l.solution].entries()){
+   const dir=dirs.find(d=>d[0]===ch);assert.ok(dir,`${idx+1} move ${step+1}: direction`);
+   b=simulate(l,b,dir);assert.ok(b,`${idx+1} move ${step+1}: legal footprint`);
   }
+  assert.equal(b.o,'U',`${idx+1}: upright at finish`);
+  assert.equal(l.grid[b.y][b.x],'G',`${idx+1}: ends in exit hole`);
+  assert.equal(shortest(l),l.minMoves,`${idx+1}: independently validated shortest path`);
+ }
 });
-test('Special tiles occur in the game',()=>{
-  const all=levels.map(l=>l.grid.join('')).join('');
-  for(const tile of 'FSBAP')assert.ok(all.includes(tile),`Tile ${tile} is used`);
+test('Bridges and portals are genuinely necessary in their specialist chambers',()=>{
+ let nSwitch=0,nPortal=0,nFragile=0;
+ for(const [idx,l] of levels.entries()){
+  if(l.mechanic==='switch'){nSwitch++;
+   assert.ok(l.grid.join('').includes('S')&&l.grid.join('').includes('B'),`${idx+1}: switch and bridge exist`);
+   assert.equal(shortest(l,{disableBridge:true}),null,`${idx+1}: cannot bypass the bridge`);
+  }
+  if(l.mechanic==='portal'){nPortal++;
+   assert.ok(l.grid.join('').includes('A')&&l.grid.join('').includes('P'),`${idx+1}: portal pair exists`);
+   assert.equal(shortest(l,{disablePortals:true}),null,`${idx+1}: teleport is required`);
+  }
+  if(l.mechanic==='fragile'){nFragile++;assert.ok(l.grid.join('').includes('F'),`${idx+1}: fragile tiles exist`);}
+ }
+ assert.ok(nSwitch>=10&&nPortal>=6&&nFragile>=7);
 });
-test('No external JavaScript or CSS assets required',()=>{
-  assert.equal((html.match(/<script[^>]+src=/g)||[]).length,0);
-  assert.equal((html.match(/<link[^>]+stylesheet/g)||[]).length,0);
+test('Physics matches a rigid rectangular 2×1 prism tipping off the current tile',()=>{
+ const upright={x:3,y:3,o:'U',bridge:false};
+ assert.deepEqual(roll(upright,1,0),{x:4,y:3,o:'H',bridge:false});
+ assert.deepEqual(roll(upright,-1,0),{x:1,y:3,o:'H',bridge:false});
+ assert.deepEqual(roll(upright,0,1),{x:3,y:4,o:'V',bridge:false});
+ assert.deepEqual(roll(upright,0,-1),{x:3,y:1,o:'V',bridge:false});
+ assert.deepEqual(roll({x:4,y:3,o:'H',bridge:false},-1,0),{x:3,y:3,o:'U',bridge:false});
+ assert.deepEqual(roll({x:3,y:4,o:'V',bridge:false},0,-1),{x:3,y:3,o:'U',bridge:false});
+});
+test('GitHub Pages ready: standalone HTML with no external resources',()=>{
+ assert.ok(html.includes('<meta name="viewport"'));
+ assert.ok(html.includes('name="description"'));
+ assert.ok(!/<script[^>]+src\s*=/.test(html));
+ assert.ok(!/<link[^>]+stylesheet/.test(html));
+ assert.ok(html.includes('data-dir="up"')&&html.includes('data-dir="right"'));
 });
